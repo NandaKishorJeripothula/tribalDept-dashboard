@@ -72,12 +72,33 @@ module.exports = function(app, passport) {
 	});
 
 
-	//logo link
+	//Logo links
 	app.get('/media/logo.png',function(req,res){
 		res.sendFile(path.join(__dirname, 'media', 'logo.png'));
 	});
 	app.get('/media/loginBanner.png',function(req,res){
 		res.sendFile(path.join(__dirname, 'media', 'loginBanner.png'));
+	});
+	
+
+	//MaterializeCSS LINKS
+	app.get('/css/materialize.min.css',function(req,res){
+		res.sendFile(path.join(__dirname, 'css', 'materialize.min.css'));
+	});
+
+	//MaterializeCSS LINKS
+	app.get('/js/materialize.min.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'materialize.min.js'));
+	});
+
+	//Java Script Link
+	
+	app.get('/js/dashboard.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'dashboard.js'));
+	});
+
+	app.get('/js/jquery-3.3.1.min.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'jquery-3.3.1.min.js'));
 	});
 };
 
