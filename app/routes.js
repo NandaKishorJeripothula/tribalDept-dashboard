@@ -1,6 +1,7 @@
 // app/routes.js
 module.exports = function(app, passport) {
 
+	var path= require('path');
 	// =====================================
 	// HOME PAGE (with login links) ========
 	// =====================================
@@ -69,6 +70,15 @@ module.exports = function(app, passport) {
 		req.logout();
 		res.redirect('/');
 	});
+
+
+	//logo link
+	app.get('/media/logo.png',function(req,res){
+		res.sendFile(path.join(__dirname, 'media', 'logo.png'));
+	});
+	app.get('/media/loginBanner.png',function(req,res){
+		res.sendFile(path.join(__dirname, 'media', 'loginBanner.png'));
+	});
 };
 
 // route middleware to make sure
@@ -81,3 +91,5 @@ function isLoggedIn(req, res, next) {
 	// if they aren't redirect them to the home page
 	res.redirect('/');
 }
+
+
