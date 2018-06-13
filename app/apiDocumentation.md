@@ -115,3 +115,39 @@ SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_vi
         "total_no_students": 163
     }
 ```
+
+### End Point
+```
+/api/districts
+
+SELECT DISTINCT api_district.name as district FROM api_district
+
+    {
+        "district": "ADILABAD"
+    },
+    {
+        "district": "NAGARKURNOOL"
+    },
+    {
+        "district": "SANGAREDDY"
+    }
+```
+
+### End Point
+```
+/api/districts/:district
+
+/api/districts/ADILABAD
+
+SELECT DISTINCT api_mandal.name as mandals from api_mandal, api_district, api_revenuedivision where api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id=api_district.id AND api_district.name= ?
+
+{
+        "mandals": "ADILABAD"
+    },
+    {
+        "mandals": "ADILABAD (URBAN)"
+    },
+    {
+        "mandals": "BAZARHATHNOOR"
+    },
+```

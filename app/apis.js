@@ -127,4 +127,27 @@ api.get('/api/totalSchoolsData', function(req, res) {
       }
     });
   });
+
+  //FOR DROPDOWN PURPOSE RETRIVAL OF DISTRICTS
+  api.get('/api/districts',function(req,res){
+      connection.query('SELECT DISTINCT api_district.name as district FROM api_district',function(err,rows){
+          if(err){
+              res.send(err);
+          }else{
+              res.send(JSON.stringify(rows));
+          }
+      });
+  });
+  //FOR DROPDOWN PURPOSE MANDAL RETRIVAL BASED ON DISTRICT INPUT
+  api.get('/api/districts/:district',function(req,res){
+      var district= req.params.district;
+      connection.query('SELECT DISTINCT api_mandal.name as mandals from api_mandal, api_district, api_revenuedivision where api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id=api_district.id AND api_district.name= ?',[district],function(err,rows){
+          if(err){
+              res.send(err);
+          }else{
+              res.send(JSON.stringify(rows));
+          }
+      });
+  });
+
 module.exports = api;
