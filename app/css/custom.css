@@ -1,0 +1,67 @@
+.textStyle{
+    font-weight: 600;
+    font-family: Roboto,SansSerif;
+    font-size: 16px;
+    background: rgba(120,120,214,.4);
+    border-radius: 10px;
+    padding: 10px;;
+}
+/*.introdutionSection{
+    min-height: 100px;
+    background-color: #0288d1;
+}*/
+.portfolioSection{
+    min-height: 400px;
+    background-color: #00b0ff;
+}
+.portfoliocolor{
+    background-color: #00b0ff;
+}
+.aboutMeSection {
+    min-height: 400px;
+    background-color:#0288d1;
+}
+
+.findMeSection{
+    min-height: 100px;
+    background-color: rgb(48, 60, 66);
+
+}
+.footerSection{
+    min-height: 25px;
+}
+.navigation{
+    color:#000;
+    font-family: Roboto;
+    font-size: medium;
+    font-weight:20px;
+}
+.profile{
+    max-height: 20px;
+    max-width:20px;
+    padding: 20px;;
+
+}
+.parallax-container {
+    min-height: 200px;
+    /* standared cut from framework file
+    height: 500px;*/
+
+}
+.imgp {
+    height: 280px;
+    width: 280px;
+    padding: 20px;
+}
+.social{
+    max-height: 100px;
+}
+.aboutmeText{
+    font-weight: 200;
+    font-size: 19px;
+    margin-top: -25px;
+}
+.portfolioText{
+    font-weight: 200;
+    font-size: 19px;
+}

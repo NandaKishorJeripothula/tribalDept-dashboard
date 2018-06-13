@@ -79,7 +79,11 @@ module.exports = function(app, passport) {
 	app.get('/media/loginBanner.png',function(req,res){
 		res.sendFile(path.join(__dirname, 'media', 'loginBanner.png'));
 	});
-	
+
+	app.get('/media/bg.jpg',function(req,res){
+		res.sendFile(path.join(__dirname, 'media', 'bg.jpg'));
+	});
+
 
 	//MaterializeCSS LINKS
 	app.get('/css/materialize.min.css',function(req,res){
@@ -97,9 +101,16 @@ module.exports = function(app, passport) {
 		res.sendFile(path.join(__dirname, 'js', 'dashboard.js'));
 	});
 
-	app.get('/js/jquery-3.3.1.min.js',function(req,res){
-		res.sendFile(path.join(__dirname, 'js', 'jquery-3.3.1.min.js'));
+	app.get('/js/jquery.min.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'jquery.min.js'));
 	});
+
+
+	//css links
+	app.get('/css/custom.css',function(req,res){
+		res.sendFile(path.join(__dirname, 'css', 'custom.css'));
+	});
+
 };
 
 // route middleware to make sure

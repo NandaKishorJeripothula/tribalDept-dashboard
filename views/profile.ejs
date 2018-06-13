@@ -1,105 +1,238 @@
 <!-- views/profile.ejs -->
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Node Authentication</title>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <!-- links goes here-->
 	<!--Import Google Icon Font-->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<!--Import materialize.css-->
-	<link type="text/css" rel="stylesheet" href="/css/materialize.min.css" media="screen,projection" />
-	<!--Let browser know website is optimized for mobile-->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="css/custom.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-	<!--<style>
-		body {
-			padding-top: 80px;
-			word-wrap: break-word;
-		}
-	</style>
--->
-</head>
-
-<body style="font-family: 'Roboto', sans-serif;">
-	<nav>
-		<div class="nav-wrapper">
-			<a href="#!" class="brand-logo">Logo</a>
-			<ul class="right hide-on-med-and-down">
-				<li>
-					<a href="sass.html">Sass</a>
-				</li>
-				<li>
-					<a href="badges.html">Components</a>
-				</li>
-				<!-- Dropdown Trigger -->
-				<li>
-					<a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown
-						<i class="material-icons right">arrow_drop_down</i>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-	<ul id="dropdown1" class="dropdown-content">
-			<li><strong>id</strong>:<%= user.id %></li>
-			<li class="divider"></li>
-			<li><strong>UserName</strong>:<%= user.username %></li>
-			<li><strong>password</strong>:<%= user.password %></li>
-			<li class="divider"></li>
-			<li><a href="/logout" class="btn btn-default btn-sm">Logout</a></li>
-
-			
-				<br>
-				<strong>username</strong>:
-				<%= user.username %>
-					<br>
+<body >
+    <!--Navbar goes Here-->
+    <div id="navig" >
+        <nav>
+            <div class=" nav-wrapper white ">
+                <a href="#" class="brand-logo hide-on-med-and-down grey-text" style="font-weight: 200">&nbsp;&nbsp;&nbsp;Tribal Welfare Department, Government of Telangana</a>
+                <a href="#" class="brand-logo show-on-medium-and-down grey-text" style="font-weight: 200; ; filter: alpha(opacity=);">&nbsp;&nbsp;&nbsp;Tribal Welfare </a>
+			    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="grey-text fa fa-bars"></i></a>
+     			<ul class="right hide-on-med-and-down" >
+                  <!--  <li><a class="navigation" href="#portfolio" >Portfolio</a></li>
+					<li><a class="navigation" href="#aboutMe" >About Me</a></li>
+					<li><i class="fa fa-3x fa-facebook"></i></li>
+					<button data-target="userProfile" class="btn modal-trigger">Modal</button>
+                    <li><a class="navigation" href="#findMe">Find Me</a></li>
+				-->
+					<li><a data-target="userProfile" class=" grey-text modal-trigger">User Profile</a></li>
 					
+				</ul>
+				
+				<!--Modal for User Profile-->
+				<div id="userProfile" class="modal">
+						<div class="modal-content grey-text">
+								<h4><span class="fa fa-anchor"></span> Profile</h4>
+								<h6>Id:<%= user.id %>
+									UserName:<%= user.username %>
+									Password:<%= user.password %>
+								</h6>
+							  </div>
+							  <div class="modal-footer">
+									<a href="/logout" class="btn modal-close waves-effect waves-green">Logout</a>
+							  </div>
+				</div> 			
+				<ul class="sidenav white-text" id="mobile-demo" style="background-color: #00b0ff; font-weight: 200">
+						<li><div class="userView" style="margin-top: 20px; margin-left: 20px;">
+							<a href="#introduction" ><img class="circle" src="media/logo.png" ></a>
+							<h5 style="font-weight: 200">Tribal Welfare Department,<br> Government of Telangana</h5>
+						<li>
+						<li><a href="#portfolio">Dashboard</a></li>
+						<li><a href="#aboutMe">About Me</a></li>
+						<li><a href="#findMe">Find Me</a></li>
+					  </ul>
+            </div>
+        </nav>
+    </div>
+    <!--section PortFolio-->
+    <div class="portfolioSection" id="portfolio">
+        <div class="parallax-container white-text">
+            <!--<div class="row">
+                <div class="col s12 m6">This div is 6-columns wide</div>
+                <div class="col s12 m6">This div is 6-columns wide</div>
+            </div>-->
+            <div class="row">
+                <h3 style="font-weight: 200" class="center-align white-text">Dashboard</h3>
+            </div>
+            <div class="row container center-align">
+                <div class="col l4 s12 m12">
+                    <!--cards-->
+                    <div>
+                        <div class="card cyan darken-1 z-depth-1">
+                        <div class="card-content white-text">
+                            <span><i class="fa fa-lightbulb-o fa-3x" aria-hidden="true"></i></span>
+                            <span class="card-title">Have an Idea?</span>
+                            <p>I am a very glad to receive new thoughts from people. I hope I can help you building your idea. So let me know your idea in the post section below
+                                <br> Thank You.</p>
+                        </div>
+                        <div class="card-action">
+                            <!--<a href="#">This is a link</a>
+                            here we are adding the form elemts
+                            -->
+                            <div>
+                                <ul class=" light-blue darken-2 blue-text collapsible " data-collapsible="accordion">
+                                    <li>
+                                        <div class="white-text portfoliocolor collapsible-header">Post<i class="fa fa-send "></i></div>
+                                        <div class="collapsible-body white ">
+                                            <div class="input-field">
+                                                <input id="icon_prefix" type="text" class="validate">
+                                                <label for="icon_prefix">First Name</label>
+                                            </div>
+                                            <div class="input-field">
+                                                <input id="email" type="email" class="validate">
+                                                <label for="email">Email</label>
+                                            </div>
+                                            <div class="input-field">
+                                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                                <label for="textarea1">Textarea</label>
 
-
-	</ul>
-	<div class="container">
-
-		<div class="page-header text-center">
-			<h1>
-				<span class="fa fa-anchor"></span> Profile Page</h1>
-			<a href="/logout" class="btn btn-default btn-sm">Logout</a>
-		</div>
-
-		<div class="row">
-
-			<!-- LOCAL INFORMATION -->
-			<div class="col-sm-6">
-				<div class="well">
-					<h3>
-						<span class="fa fa-user"></span> Local</h3>
-
-					<p>
-						<strong>id</strong>:
-						<%= user.id %>
-							<br>
-							<strong>username</strong>:
-							<%= user.username %>
-								<br>
-								<strong>password</strong>:
-								<%= user.password %>
-					</p>
-
-				</div>
-			</div>
-
-		</div>
-
+                                            </div>
+                                            <a class="btn waves-effect hoverable">Send</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col l4 s12 m12">
+                   <div>
+                       <div class="card light-blue accent-3 z-depth-5">
+                           <div class="card-content white-text">
+                               <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                               <span class="sr-only">Loading...</span>
+                               <div class="divider"></div>
+                               <span class="card-title">MySelf</span>
+                               <div class="divider"></div>
+                               <p class="portfolioText">Being like a Star in Galaxy is Nothing <br> Where There is Another One <br> Who is Helpful to Other
+                                   <br> i.e, Sun <br> I want to be the Sun than a Star <br> - Nandu</p>
+                           </div>
+                           <div class="card-action">
+                              <!-- <a href="#">This is a link</a>
+                               <a href="#">This is a link</a>-->
+                           </div>
+                       </div>
+                   </div>
+                </div>
+                <div class="col l4 s12 m12">
+                    <div>
+                        <div class="card cyan darken-1 z-depth-1">
+                            <div class="card-content white-text">
+                                <span><i class="fa fa-puzzle-piece fa-2x" aria-hidden="true"></i></span>
+                                <span class="card-title">Want to Suggest?</span>
+                                <p>I am a very glad to get the suggestions from people like you. I'll read  your suggestion, and the result will be immediatly put on to work.
+                                    <br><br><br>Thank You.</p>
+                            </div>
+                            <div class="card-action">
+                                <!--<a href="#">This is a link</a>
+                                here we are adding the form elemts  -->
+                                <div>
+                                    <ul class=" light-blue darken-2 blue-text collapsible " data-collapsible="accordion">
+                                        <li>
+                                            <div class="white-text portfoliocolor collapsible-header">Post<i class="fa fa-send "></i></div>
+                                            <div class="collapsible-body white ">
+                                                <div class="input-field">
+                                                    <input id="icon_prefix" type="text" class="validate">
+                                                    <label for="icon_prefix">First Name</label>
+                                                </div>
+                                                <div class="input-field">
+                                                    <input id="email" type="email" class="validate">
+                                                    <label for="email">Email</label>
+                                                </div>
+                                                <div class="input-field">
+                                                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                                    <label for="textarea1">Textarea</label>
+                                                </div>
+                                                <a class="btn waves-effect hoverable">Send</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--section AboutMe-->
+    <div class="aboutMeSection " id="aboutMe">
+        <div class="parallax-container white-text">
+            <!--<div class="row">
+                <div class="col s12 m6">This div is 6-columns wide</div>
+                <div class="col s12 m6">This div is 6-columns wide</div>
+            </div>-->
+            <div class="row">
+                <h3 style="font-weight: 200" class="center-align">About Me</h3>
+            </div>
+            <div class="row container center">
+                <!-- arrngmt is in form 2(empty)+4(text)+2(empty)-->
+                <div class="col l2 s1 m1 "> </div>
+                <div class="col l8 s10 m10"><p class="aboutmeText white-text">My Self <br>Nanda Kishor Jeripothula <br> I'm a Computer Science Student from Hyderabad,
+                                                                        interested in day chaging technology and solving technincal issues. Till now my works can
+                                                                        be viewd in github and can checkot in Find Me section to contact me. And coming &nbsp;&nbsp;&nbsp;to my personal
+                                                                        carries I'm doing my bachelor degree &nbsp;&nbsp;in down specified college in Karimnagar.
+                                                                        <br>
+                                                                        And I love my dad who is my strenth and weakness. And I like N,B,D & S alphabets the most, which
+                                                                        reflects the best of mine.
+                                                                        <br>I have an habit of sitting infront of my Laptop all the day :).
+                                                                        <br><br> You can have a look over my Curriculum Vitae here .</p> </div>
+                <div class="col l2 s1 m1 "></div>
+            </div>
+            <div class="row container center"><!--button link DOne-->
+                    <a class="waves-effect waves-light btn white blue-text z-depth-2 hove" href="https://drive.google.com/open?id=0B0t9MSydtaonOXRTbThQekpqMXc"><i class="fa fa-globe"></i>  &nbsp; RESUME  &nbsp;<i class="fa fa-download"></i> </a>
+            </div>
+        </div>
+    </div>
+    <!--section FindMe-->
+    <div class="findMeSection" id="findMe">
+        <div class="container white-text">
+            <div class="parallax-container">
+                <div class="row center social">
+                    <div class="col s12 m6">
+                        <h3 style="font-weight: 200">Currently At</h3>
+                        <h5 style="font-weight: 200" >Jyothishmathi <br>Institute of Technology & Science Karimnagar
+                            <br><h6>(As a Student)  </h6></h5>
+                    </div>
+                    <div class="col s12 m6">
+                        <h3 style="font-weight: 200">Find Me on </h3>
+                        <div class="row">
+                            <div class="col s12 m3 l3"><a href="https://github.com/NandaKishorJeripothula" class="btn-social"><i class="fa fa-github fa-4x waves-effect hoverable"></i> </a> </div>
+                            <div class="col s12 m3 l3"><a href="https://google.com/+NandaKishorJeripothulaNandu" class="btn-social"><i class="fa fa-google-plus-official fa-4x waves-effect hoverable"></i> </a> </div>
+                            <div class="col s12 m3 l3"><a href="https://www.linkedin.com/in/nanda-kishor-jeripothula-740512115/" class="btn-social"><i class="fa fa-linkedin fa-4x waves-effect hoverable"></i> </a></div>
+                            <div class="col s12 m3 l3"><a href="https://www.facebook.com/Nandu.bd" class="btn-social"><i class="fa fa-facebook fa-4x waves-effect hoverable"></i> </a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
-	<!--JavaScript at end of body for optimized loading-->
-	<script type="text/javascript" src="js/materialize.min.js"></script>
-
-	<script type="text/javascript" src="js/dashboard.js"></script>
 	
-	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!--section Footer-->
+    <div class="footerSection grey darken-3 " id="footer">
+        <div class="container center-align">
+        <a href="#introduction" class="center-align hide-on-med-and-down grey-text"> CopyRights @Nanda Kishor Jeripothula 2017( Goto Top)</a>
+        <a href="#introduction" class="center-align  show-on-med-and-down grey-text hide-on-large-only">CopyRights @Nanda Kishor J 2017( Goto Top)</a>
+        </div>
+    </div>
+    <!--Scripts go here-->
+    <script src="js/jquery.min.js" type="application/javascript"> </script>
+    <script src="js/materialize.min.js" type="application/javascript"> </script>
+    <script src="js/dashboard.js" type="application/javascript"></script>
 </body>
-
 </html>
