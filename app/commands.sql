@@ -63,4 +63,4 @@ GROUP BY inspection_submissionreport.officer ORDER BY district;
 --
 -- List of ATWO DTWO Officer not submitted any reports in a certain / particular region
 --
-SELECT DISTINCT api_user.name, api_user.designation, api_user.phone_number, api_user.email from api_user WHERE api_user.name NOT IN ( SELECT inspection_submissionreport.officer FROM inspection_submissionreport WHERE month(inspection_submissionreport.created_on)='01' AND DATE_FORMAT(DATE(inspection_submissionreport.created_on), '%Y-%m-%d') BETWEEN '2018-01-01' AND '2018-01-05') AND api_user.designation='ATWO' OR 'DTWO'
+SELECT DISTINCT api_user.name, api_user.designation, api_user.phone_number, api_user.email from api_user WHERE api_user.name NOT IN ( SELECT inspection_submissionreport.officer FROM inspection_submissionreport WHERE month(inspection_submissionreport.created_on)='01' AND DATE_FORMAT(DATE(inspection_submissionreport.created_on), '%Y-%m-%d') BETWEEN '2018-01-01' AND '2018-01-05') AND api_user.designation='ATWO' OR 'DTWO';
