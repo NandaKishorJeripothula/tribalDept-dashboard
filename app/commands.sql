@@ -8,12 +8,6 @@ select count(distinct institution_id) from inspection_submissionreport where yea
 --
 select id, name from inspection_institution where id NOT IN ( select distinct institution_id from inspection_submissionreport where year(created_on)='2018' and month(created_on)='03' );
 
-
---
---To get the total NOT_VERIFIED schools on a particular month of the particular year
---
-select id, name from inspection_institution where id NOT IN ( select distinct institution_id from inspection_submissionreport where year(created_on)='2018' and month(created_on)='03' );
-
 --
 --To get the FULL-DETAILS total NOT_VERIFIED schools on a particular month of the particular year
 --
@@ -29,14 +23,14 @@ ORDER BY `District` ASC;
 
 
 --
--- To get the Summissionreports in certain range of dates
+-- To get the Submmissionreports in certain range of dates
 --
 SELECT * from inspection_submissionreport WHERE DATE_FORMAT(DATE(inspection_submissionreport.created_on), '%Y-%m-%d') BETWEEN '2018-03-01' AND '2018-03-05';
 
 
-
 --
--- To get the details of officer, design and school in particular region of date
+-- this is to get the submission report in a particular region of date with submitted officer visited school and designation of officer
+-- To get the details submission report of officer, designation and school in particular region of date
 --
 SELECT inspection_submissionreport.officer AS officer_name, inspection_submissionreport.designation, inspection_submissionreport.id AS report_id, inspection_submissionreport.submitted_on AS submission_date,  inspection_institution.name FROM inspection_submissionreport, inspection_institution WHERE inspection_submissionreport.institution_id= inspection_institution.id AND month(inspection_submissionreport.created_on)='01' AND DATE_FORMAT(DATE(inspection_submissionreport.created_on), '%Y-%m-%d') BETWEEN '2018-01-01' AND '2018-01-05' ORDER BY inspection_submissionreport.officer ASC;
 
