@@ -64,6 +64,14 @@ module.exports = function(app, passport) {
 	});
 
 	// =====================================
+	// DASHBOARD SECTION ===================
+	// =====================================
+	app.get('/dashboard', isLoggedIn, function(req, res) {
+		res.render('dashboard.ejs', {
+			user : req.user // get the user out of session and pass to template
+		});
+	});
+	// =====================================
 	// LOGOUT ==============================
 	// =====================================
 	app.get('/logout', function(req, res) {
@@ -71,8 +79,11 @@ module.exports = function(app, passport) {
 		res.redirect('/');
 	});
 
-
-	//Logo links
+	//======================
+	//=======Support links==
+	//======================
+	
+	//MEIDA
 	app.get('/media/logo.png',function(req,res){
 		res.sendFile(path.join(__dirname, 'media', 'logo.png'));
 	});
@@ -80,22 +91,40 @@ module.exports = function(app, passport) {
 		res.sendFile(path.join(__dirname, 'media', 'loginBanner.png'));
 	});
 
-	app.get('/media/bg.jpg',function(req,res){
-		res.sendFile(path.join(__dirname, 'media', 'bg.jpg'));
+	
+	app.get('/media/sidebar.jpg',function(req,res){
+		res.sendFile(path.join(__dirname, 'media', 'sidebar.jpg'));
+	});
+
+	app.get('/media/apple-icon.png',function(req,res){
+		res.sendFile(path.join(__dirname, 'media', 'apple-icon.png'));
+	});
+
+	
+	app.get('/media/favicon.png',function(req,res){
+		res.sendFile(path.join(__dirname, 'media', 'favicon.png'));
 	});
 
 
-	//MaterializeCSS LINKS
+	//=======CSS=========
+	app.get('/css/custom.css',function(req,res){
+		res.sendFile(path.join(__dirname, 'css', 'custom.css'));
+	});
+
 	app.get('/css/materialize.min.css',function(req,res){
 		res.sendFile(path.join(__dirname, 'css', 'materialize.min.css'));
 	});
+	
+	app.get('/css/material-dashboard.css',function(req,res){
+		res.sendFile(path.join(__dirname, 'css', 'material-dashboard.css'));
+	});
 
-	//MaterializeCSS LINKS
+	
+	//=====JAVA SCRIPT=====
+	
 	app.get('/js/materialize.min.js',function(req,res){
 		res.sendFile(path.join(__dirname, 'js', 'materialize.min.js'));
 	});
-
-	//Java Script Link
 	
 	app.get('/js/dashboard.js',function(req,res){
 		res.sendFile(path.join(__dirname, 'js', 'dashboard.js'));
@@ -105,12 +134,44 @@ module.exports = function(app, passport) {
 		res.sendFile(path.join(__dirname, 'js', 'jquery.min.js'));
 	});
 
-
-	//css links
-	app.get('/css/custom.css',function(req,res){
-		res.sendFile(path.join(__dirname, 'css', 'custom.css'));
+	app.get('/js/core/jquery.min.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js/core', 'jquery.min.js'));
 	});
 
+	app.get('/js/core/popper.min.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js/core', 'popper.min.js'));
+	});
+
+	app.get('/js/core/bootstrap-material-design.min.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js/core', 'bootstrap-material-design.min.js'));
+	});
+	
+	app.get('/js/plugins/perfect-scrollbar.jquery.min.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js/plugins', 'perfect-scrollbar.jquery.min.js'));
+	});
+	
+	app.get('/js/plugins/chartist.min.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js/plugins', 'chartist.min.js'));
+	});
+
+	app.get('/js/plugins/bootstrap-notify.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js/plugins', 'bootstrap-notify.js'));
+	});
+	
+	app.get('/js/material-dashboard.min.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'material-dashboard.min.js'));
+	});
+
+	//======DEMO Framework====
+	app.get('/demo/demo.css',function(req,res){
+		res.sendFile(path.join(__dirname, 'demo', 'demo.css'));
+	});
+
+	app.get('/demo/demo.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'demo', 'demo.js'));
+	});
+
+	
 };
 
 // route middleware to make sure
