@@ -21,15 +21,15 @@ module.exports = function(app, passport) {
 
 	// process the login form
 	app.post('/login', passport.authenticate('local-login', {
-            successRedirect : '/profile', // redirect to the secure profile section
+            successRedirect : '/dashboard', // redirect to the secure profile section
             failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
 		}),
         function(req, res) {
-            console.log("hello");
+            console.log("TWD Cookie Set");
 
             if (req.body.remember) {
-              req.session.cookie.maxAge = 1000 * 60 * 3;
+              req.session.cookie.maxAge = 1000 * 60 * 60 * 3;
             } else {
               req.session.cookie.expires = false;
             }
@@ -47,7 +47,7 @@ module.exports = function(app, passport) {
 
 	// process the signup form
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect : '/profile', // redirect to the secure profile section
+		successRedirect : '/dashboard', // redirect to the secure profile section
 		failureRedirect : '/signup', // redirect back to the signup page if there is an error
 		failureFlash : true // allow flash messages
 	}));
@@ -165,12 +165,20 @@ module.exports = function(app, passport) {
 	//======DEMO Framework====
 	app.get('/demo/demo.css',function(req,res){
 		res.sendFile(path.join(__dirname, 'demo', 'demo.css'));
-	});
+	2});
 
 	app.get('/demo/demo.js',function(req,res){
 		res.sendFile(path.join(__dirname, 'demo', 'demo.js'));
 	});
 
+	//JS FILESW FOR HANDLING APIS
+	app.get('/js/accesspoints.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'accesspoints.js'));
+	});
+	
+	app.get('/js/dashboard.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'dashboard.js'));
+	});
 	
 };
 

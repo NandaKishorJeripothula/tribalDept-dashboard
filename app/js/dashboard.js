@@ -1,37 +1,96 @@
-$( document ).ready(function()  {
-    $(".dropdown-trigger").dropdown();    
-    $('.modal').modal();
-});//jquery script ends here
-
-
-// smooth scrolling effect
-$(function() {
-    $('a[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            if (target.length) {
-                $('html, body').animate({
-                    scrollTop: target.offset().top
-                }, 1000);
-                return false;
-            }
-        }
+var arrCount = new Array();
+var arrMonths = new Array();
+var date= new Date;
+var month= date.getMonth();
+var year = date.getFullYear();
+   
+document.addEventListener('DOMContentLoaded', function() {
+    var studentToStaffRatio;
+    //Total Number of Schools Tag
+    fetch(SERVER+TOTAL_SCHOOLS_COUNT)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        document.getElementById('totalNumberOfSchools').innerText=data[0].total_schools_count;
     });
-});
-//gmailmenu
-// Initialize collapse button
-$('.sidenav').sidenav();
-// Initialize collapsible (uncomment the line below if you use the dropdown variation)
-//$('.collapsible').collapsible();
-//parallax
-$(document).ready(function(){
-    $('.parallax').parallax();
-});
-//colla[sible
-$(document).ready(function(){
-    $('.collapsible').collapsible();
-});
-//textarea
-$('#textarea1').val('Idea Here');
-$('#textarea1').trigger('autoresize');
+    //Total Number Of Students
+    fetch(SERVER+TOTAL_STUDENTS_COUNT)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        document.getElementById('totalNumberOfStudents').innerText=data[0].total_students_count;
+        studentToStaffRatio=data[0].total_students_count;
+
+    });
+    
+    //Total Number Of Staff
+    fetch(SERVER+TOTAL_STAFF_COUNT)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        document.getElementById('totalNumberOfStaff').innerText=data[0].total_staff_count;
+        //TO DO
+        studentToStaffRatio = studentToStaffRatio / data[0].total_staff_count;
+        console.log(studentToStaffRatio);
+
+    });
+
+    //STUDENTS TO STAFF RATIO
+    document.getElementById('studenToStaffRaio').innerHTML=studentToStaffRatio;
+
+    //Total Number Of ATWOs
+    fetch(SERVER+TOTAL_ATWOS_COUNT)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        document.getElementById('totalNumberOfATWOs').innerText=data[0].total_ATWOs_count;
+        
+    });
+
+    //Total Number Of DTWOs
+    fetch(SERVER+TOTAL_DTWOS_COUNT)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        document.getElementById('totalNumberOfDTWOs').innerText=data[0].total_DTWOs_count;
+        
+    }); 
+    //TODO
+
+    //For total number of Schools verified in last 6 months
+    for(i=6; i>0;i--){
+        if(month==0){
+            //Since the GetMonth Return 0-11 we correct it to 1-12 to get right data from server
+            var Amonth= month+1;
+            getTotalNumberOfSchoolsVerifiedYearMonth(year,Amonth);        
+            month=11;
+            year=year-1;
+        }
+        else
+        {
+            var Amonth= month+1;
+            getTotalNumberOfSchoolsVerifiedYearMonth(year,Amonth);   
+            month--;   
+        }
+    }
+    console.log(arrCount);
+    console.log(arrMonths);
+  });
+  function getTotalNumberOfSchoolsVerifiedYearMonth(Ryear,Rmonth){
+    arrMonths.push(Rmonth);
+    Rmonth=Rmonth.toString();
+    Rmonth=Rmonth.padStart(2,'0');
+    fetch(SERVER+TOTAL_NUMBER_OF_SCHOOLS_VERIFIED_YEAR_MONTH+'/'+Ryear+'/'+Rmonth)
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        arrCount.push(data[0].total_num_of_schools_verified);
+        
+    });
+}

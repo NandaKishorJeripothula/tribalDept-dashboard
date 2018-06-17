@@ -29,7 +29,64 @@ api.get('/about', function(req, res) {
   res.send('About us');
 });
 
-//APIs 
+//APIs
+api.get('/api/totalSchoolsCount',function(req,res){
+    connection.query('SELECT COUNT(id) as total_schools_count FROM inspection_institution',function(err,rows){
+        if(err){
+            res.send(err);
+        }
+        else{
+        res.send(JSON.stringify(rows));
+        }
+    })
+  });
+
+
+  api.get('/api/totalStudentsCount',function(req,res){
+    connection.query('SELECT SUM(total_students) as total_students_count FROM inspection_institution',function(err,rows){
+        if(err){
+            res.send(err);
+        }
+        else{
+        res.send(JSON.stringify(rows));
+        }
+    })
+  });
+
+  
+  api.get('/api/totalStaffCount',function(req,res){
+    connection.query('SELECT COUNT(id) as total_staff_count FROM `inspection_staff`',function(err,rows){
+        if(err){
+            res.send(err);
+        }
+        else{
+        res.send(JSON.stringify(rows));
+        }
+    })
+  });
+
+  api.get('/api/totalATWOsCount',function(req,res){
+    connection.query('SELECT COUNT(id) as total_ATWOs_count FROM api_user WHERE designation="ATWO" ',function(err,rows){
+        if(err){
+            res.send(err);
+        }
+        else{
+        res.send(JSON.stringify(rows));
+        }
+    })
+  });
+
+  api.get('/api/totalDTWOsCount',function(req,res){
+    connection.query('SELECT COUNT(id) as total_DTWOs_count FROM api_user WHERE designation="DTWO" ',function(err,rows){
+        if(err){
+            res.send(err);
+        }
+        else{
+        res.send(JSON.stringify(rows));
+        }
+    })
+  });
+
 api.get('/api/totalSchoolsData', function(req, res) {
     connection.query(`
     SELECT 
@@ -64,17 +121,6 @@ api.get('/api/totalSchoolsData', function(req, res) {
     });
   });
   
-  api.get('/api/totalStudentsCount',function(req,res){
-    connection.query('SELECT SUM(total_students) as total_students_count FROM inspection_institution',function(err,rows){
-        if(err){
-            res.send(err);
-        }
-        else{
-        res.send(JSON.stringify(rows));
-        }
-    })
-  });
-
   api.get('/api/totalNumberOfSchoolsVerifiedInYearMonth/:year/:month',function(req,res){
       var year= req.params.year;
       var month= req.params.month;
