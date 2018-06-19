@@ -81,9 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(arrCount);
     console.log(arrMonths);
     //footer JS
-    var footer= document.getElementById('footer');
-    foote.innerHTML=
-        `<div class="container-fluid">
+    var footer= document.getElementById("footer");
+    footer.innerHTML=
+        `<div class="container-fluid" style="background:#eee;>
         <nav class="float-left">
           <ul>
             <li>

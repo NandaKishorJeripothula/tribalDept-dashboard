@@ -15,13 +15,42 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
+  <link rel="stylesheet" href="css/materialize.min.css">
   <link href="css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
-  <div class="wrapper ">
+  <div class="extra_wrapper">
+      <nav class="grey-text text-darken-2" style="background: #eceff1 ">
+        <div class="container-fluid">
+              <div class="nav-wrapper">
+                  <div class="left hide-on-med-and-down">
+                      <img src="/media/cm.png" alt="CM" class="circle responsive-img" alt="LOGO" style="width:70px;">
+                      <h6> 
+                        <small>K. Chandra Sekhar Rao , &nbsp;&nbsp;&nbsp;&nbsp; Hon'ble Cheif Minister of Telangana</small>
+                      </h6>
+                  </div>
+                  <div class="right hide-on-med-and-down  text-right">
+                      <img src="/media/minister.jpg" alt="MINISTER" class="circle responsive-img" alt="LOGO" style="width:70px;height: auto;">
+                      <h6> 
+                        <small>
+                         Azmeera Chandulal ,&nbsp;&nbsp;&nbsp;&nbsp; Hon'ble Minister of Tribal Welfare Telangana
+                        </small>
+                      </h6>
+                  </div>
+                  <div class="navbar-brand center brand-logo">
+                      <img src="/media/loginBanner.png" class="" style="width: 280px;">
+                      <h3 class="black-text text-lighten-2 hide-on-med-and-down">Tribal Welfare Educational Institutions Inspection App</h4>
+                  </div>
+              </div>
+        
+      </div>  
+    </nav>
+        
+  </div>
+  <div class="wrapper ">  
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="media/sidebar.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -90,7 +119,7 @@
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
+          <div class="container-fluid">
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="#pablo">Dashboard</a>
           </div>
@@ -150,17 +179,19 @@
                     <i class="material-icons">people</i>
                   </div>
                   <p class="card-category">Students / Staff</p>
-                  <h4 class="card-title">
+                  <h6 class="card-title">
                     <small>
-                    <span id='totalNumberOfStudents'></span>/
-                    <span id='totalNumberOfStaff'></span>
+                    <small>
+                        <span id='totalNumberOfStudents'></span>/
+                        <span id='totalNumberOfStaff'></span>
                     </small>
-                  </h4>
+                    </small>
+                  </h6>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
                     <i class="material-icons">compare_arrows</i> Students to Staff Ratio &nbsp;&nbsp;
-                    <p id='studenToStaffRaio'>%
+                    <p id='studenToStaffRaio'>
                     </p>
                   </div>
                 </div>
@@ -543,45 +574,45 @@
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav class="float-left">
-            <ul>
-              <li>
-                <a href="#Developers">
-                  DESIGNED AND DEVELOPED BY
-                </a>
-              </li>
-              <li>
-                <a href="mailto:j.kishor.bd@gmail.com">
-                  Nanda Kishor Jeripothula
-                </a>
-              </li>
-              <li>
-                <a href="mailto:krishnakathala@gmail.com">
-                  Krishna Chaitanya Rao Kathala
-                </a>
-              </li>
-              <li>
-                <a href="#Developers">
-                  LINK EXTRA HERE
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  SOMEEXTRA content
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, In <i class="fa fa-handshake-o"></i> with Government Of Telangana,
-            <a href="twd.telangana.gov.in" target="_blank">Telangana Welfare Department</a> 
-          </div>
-        </div>
+      <footer class="footer" id="footer">
+          <div class="container-fluid">
+              <nav class="float-left black-text" style="background:#eee;">
+                <ul>
+                  <li>
+                    <a href="#Developers">
+                      DESIGNED AND DEVELOPED BY
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:j.kishor.bd@gmail.com">
+                      Nanda Kishor Jeripothula
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:krishnakathala@gmail.com">
+                      Krishna Chaitanya Rao Kathala
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#Developers">
+                      LINK EXTRA HERE
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      SOMEEXTRA content
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="copyright float-right">
+                &copy;
+                <script>
+                  document.write(new Date().getFullYear())
+                </script>, In <i class="fa fa-handshake-o"></i> with Government Of Telangana,
+                <a href="twd.telangana.gov.in" target="_blank">Telangana Welfare Department</a> 
+              </div>
+            </div>
       </footer>
     </div>
   </div>

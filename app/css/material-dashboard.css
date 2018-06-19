@@ -1,20 +1,15 @@
-/*!
-
- =========================================================
- * Material Dashboard - v2.1.0
- =========================================================
-
- * Product Page: https://www.creative-tim.com/product/material-dashboard
- * Copyright 2018 Creative Tim (http://www.creative-tim.com)
-
- * Designed by www.invisionapp.com Coded by www.creative-tim.com
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
- */
 /*     brand Colors              */
+
+.small-card-title{
+font-size:1rem;
+color:black;
+}
+nav {
+  color: #fff;
+  background-color: #ee6e73;
+  width: 100%;
+  height: 15vh;
+}
 .card {
   font-size: .875rem; }
 
@@ -10189,8 +10184,16 @@ h2.title {
   top: 0;
   height: 100vh; }
 
+.extra_wrapper {
+  position: relative;
+  top: 0;
+  height: 15.2vh; 
+  display:block;
+}
+
+
 .sidebar {
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;

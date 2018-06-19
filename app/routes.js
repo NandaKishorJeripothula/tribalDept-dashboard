@@ -105,6 +105,15 @@ module.exports = function(app, passport) {
 		res.sendFile(path.join(__dirname, 'media', 'favicon.png'));
 	});
 
+	app.get('/media/cm.png',function(req,res){
+		res.sendFile(path.join(__dirname, 'media', 'cm.png'));
+	});
+
+	
+	app.get('/media/minister.jpg',function(req,res){
+		res.sendFile(path.join(__dirname, 'media', 'minister.jpg'));
+	});
+
 
 	//=======CSS=========
 	app.get('/css/custom.css',function(req,res){
