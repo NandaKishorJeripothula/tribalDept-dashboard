@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         studentToStaffRatio= Math.round(studentToStaffRatio);
         //STUDENTS TO STAFF RATIO
         document.getElementById('studenToStaffRaio').innerHTML='<strong>'+studentToStaffRatio+'</strong>';
-
+        document.getElementById('studenToStaffRaio').classList.add("active")
     });
 
     
@@ -138,4 +138,16 @@ document.addEventListener('DOMContentLoaded', function() {
         arrCount.push(data[0].total_num_of_schools_verified);
         
     });
+}
+
+window.onscroll = function() {sideBarSticker()};
+var sideBar = document.getElementById("sideBar");
+//var sticky = sideBar.offsetTop; its value is 95 but for smooth effect direct value is instead of var 
+function sideBarSticker() {
+
+  if (window.pageYOffset >=95 ) {
+    sideBar.classList.add("sticky");
+  } else {
+    sideBar.classList.remove("sticky");
+  }
 }

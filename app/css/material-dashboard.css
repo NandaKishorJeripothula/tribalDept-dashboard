@@ -1,4 +1,11 @@
 /*     brand Colors              */
+/*scrollable sideMenu*/
+.sticky {
+  position: fixed !important;
+  top: 0  !important;
+  width: 100%;
+  animation: cubic-bezier();
+}
 
 
 .small-card-title{
