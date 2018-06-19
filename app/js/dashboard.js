@@ -34,12 +34,14 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('totalNumberOfStaff').innerText=data[0].total_staff_count;
         //TO DO
         studentToStaffRatio = studentToStaffRatio / data[0].total_staff_count;
-        console.log(studentToStaffRatio);
+        studentToStaffRatio= Math.round(studentToStaffRatio);
+        //STUDENTS TO STAFF RATIO
+        document.getElementById('studenToStaffRaio').innerHTML='<strong>'+studentToStaffRatio+'</strong>';
 
     });
 
-    //STUDENTS TO STAFF RATIO
-    document.getElementById('studenToStaffRaio').innerHTML=studentToStaffRatio;
+    
+    
 
     //Total Number Of ATWOs
     fetch(SERVER+TOTAL_ATWOS_COUNT)
@@ -81,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(arrCount);
     console.log(arrMonths);
     //footer JS
+    /*
     var footer= document.getElementById("footer");
     footer.innerHTML=
         `<div class="container-fluid" style="background:#eee;>
@@ -120,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>`;   
       footer.appendChild(document.write(new Date().getFullYear());
-      footer.appendChild(footerbuttom);
+      footer.appendChild(footerbuttom);*/
 
 });
   function getTotalNumberOfSchoolsVerifiedYearMonth(Ryear,Rmonth){
