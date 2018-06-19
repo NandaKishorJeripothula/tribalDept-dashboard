@@ -252,9 +252,9 @@ md = {
       /* ----------==========     Daily Sales Chart initialization    ==========---------- */
 
       dataDailySalesChart = {
-        labels: ['fjsdfja', 'T', 'W', 'T', 'F', 'S', 'S'],
+        labels: arrMonths,//['M', 'T', 'W', 'T', 'F', 'S', 'S'],
         series: [
-          [12, 17, 7, 17, 23, 18, 38]
+          arrCount//[12, 17, 7, 17, 23, 18, 38]
         ]
       };
 
@@ -262,8 +262,8 @@ md = {
         lineSmooth: Chartist.Interpolation.cardinal({
           tension: 0
         }),
-        low: 170,
-        high: 470, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        low: 0,
+        high: 500,
         chartPadding: {
           top: 0,
           right: 0,
@@ -398,15 +398,15 @@ md = {
 
       nav_content = '<ul class="nav navbar-nav nav-mobile-menu">' + nav_content + '</ul>';
 
-      navbar_form = $('nav').find('.navbar-form').get(0).outerHTML;
+      //navbar_form = $('nav').find('.navbar-form').get(0).outerHTML;
 
       $sidebar_nav = $sidebar_wrapper.find(' > .nav');
 
       // insert the navbar form before the sidebar list
       $nav_content = $(nav_content);
-      $navbar_form = $(navbar_form);
+      //$navbar_form = $(navbar_form);
       $nav_content.insertBefore($sidebar_nav);
-      $navbar_form.insertBefore($nav_content);
+      //$navbar_form.insertBefore($nav_content);
 
       $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function(event) {
         event.stopPropagation();

@@ -167,17 +167,8 @@ module.exports = function(app, passport) {
 		res.sendFile(path.join(__dirname, 'js/plugins', 'bootstrap-notify.js'));
 	});
 	
-	app.get('/js/material-dashboard.min.js',function(req,res){
-		res.sendFile(path.join(__dirname, 'js', 'material-dashboard.min.js'));
-	});
-
-	//======DEMO Framework====
-	app.get('/demo/demo.css',function(req,res){
-		res.sendFile(path.join(__dirname, 'demo', 'demo.css'));
-	2});
-
-	app.get('/demo/demo.js',function(req,res){
-		res.sendFile(path.join(__dirname, 'demo', 'demo.js'));
+	app.get('/js/material-dashboard.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'material-dashboard.js'));
 	});
 
 	//JS FILESW FOR HANDLING APIS
