@@ -21,7 +21,7 @@
 
 <body class="">
   <div class="extra_wrapper hide-on-med-and-down">
-      <nav class="grey-text text-darken-2" style="background: orangered; #eceff1 ">
+      <nav class="grey-text text-darken-2" style="background: orangered;">
         <div class="container-fluid">
               <div class="nav-wrapper">
                   <div class="left hide-on-med-and-down">
@@ -214,6 +214,61 @@
                   </div>
                 </div>
               </div>
+              <!--Chart.js Charts STARTS Here-->
+              <div class="row">
+                  <canvas class="ct-chart" id="chartJSLINE"></canvas>
+                <div class="col-md-4">
+                  <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                      <canvas class="ct-chart" id="chartJSLINE"></canvas>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title">chartJSLINE</h4>
+                      <p class="card-category">
+                        <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                    </div>
+                    <div class="card-footer">
+                      <div class="stats">
+                        <i class="material-icons">access_time</i> updated 4 minutes ago
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card card-chart">
+                    <div class="card-header card-header-warning">
+                      <div class="ct-chart" id="websiteViewsChart"></div>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title">hjfgadshfjkass</h4>
+                      <p class="card-category">Last Campaign Performance</p>
+                    </div>
+                    <div class="card-footer">
+                      <div class="stats">
+                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card card-chart">
+                    <div class="card-header card-header-danger">
+                      <div class="ct-chart" id="completedTasksChart"></div>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title">dhdfsgds</h4>
+                      <p class="card-category">Last Campaign Performance</p>
+                    </div>
+                    <div class="card-footer">
+                      <div class="stats">
+                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Chart.js Charts ENDS Here-->
+              
               <div class="row">
                 <div class="col-lg-6 col-md-12">
                   <div class="card">
@@ -634,6 +689,8 @@
   <!--ACCESS_POINTS-->
   <script src="js/accesspoints.js"></script>
   <script src="js/dashboard.js"></script>
+  <script src="js/Chart.js"></script>
+  <script src="js/Chart.min.js"></script>
   <script>
     $(document).ready(function() {
       // Javascript method's body can be found in /js/material-dashboard.js

@@ -170,6 +170,14 @@ module.exports = function(app, passport) {
 	app.get('/js/material-dashboard.js',function(req,res){
 		res.sendFile(path.join(__dirname, 'js', 'material-dashboard.js'));
 	});
+	
+	app.get('/js/Chart.min.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'Chart.min.js'));
+	});
+	
+	app.get('/js/Chart.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'Chart.js'));
+	});
 
 	//JS FILESW FOR HANDLING APIS
 	app.get('/js/accesspoints.js',function(req,res){

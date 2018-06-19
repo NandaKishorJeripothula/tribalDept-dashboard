@@ -5,6 +5,12 @@ var month= date.getMonth();
 var year = date.getFullYear();
    
 document.addEventListener('DOMContentLoaded', function() {
+
+   
+      
+
+
+
     var studentToStaffRatio;
     //Total Number of Schools Tag
     fetch(SERVER+TOTAL_SCHOOLS_COUNT)
@@ -82,6 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     console.log(arrCount);
     console.log(arrMonths);
+    charts(arrCount,arrMonths);
+    
     //footer JS
     /*
     var footer= document.getElementById("footer");
@@ -150,4 +158,58 @@ function sideBarSticker() {
   } else {
     sideBar.classList.remove("sticky");
   }
+}
+
+function charts(MarrCount,MarrMonths){
+    var config = {
+        type: 'line',
+        data: {
+          labels: MarrMonths,
+          datasets: [{
+            backgroundColor: 'rgb(255,255,255)',
+            borderColor: 'rgb(255,255,255)',
+            pointBackgroundColor:'rgb(255,255,255)',
+            pointBorderColor:'rgb(255,255,255)',
+            data: MarrCount,
+            fill: false,
+          }]
+        },
+        options: {
+          responsive: true,
+          tooltips: {
+            mode: 'index',
+            intersect: false,
+          },
+          hover: {
+            mode: 'nearest',
+            intersect: true
+          },
+          scales: {
+            xAxes: [{
+              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Month'
+              }
+            }],
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    steps: 5,
+                    stepValue: 100,
+                    max: 500,
+                },                
+              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Value'
+              }
+            }]
+          }
+        }
+      };
+    
+
+    var ctx = document.getElementById('chartJSLINE').getContext('2d');
+  window.myLine = new Chart(ctx, config);
 }
