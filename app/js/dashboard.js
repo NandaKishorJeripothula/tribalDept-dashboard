@@ -80,7 +80,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     console.log(arrCount);
     console.log(arrMonths);
-  });
+    //footer JS
+    var footer= document.getElementById('footer');
+    foote.innerHTML=
+        `<div class="container-fluid">
+        <nav class="float-left">
+          <ul>
+            <li>
+              <a href="#Developers">
+                DESIGNED AND DEVELOPED BY
+              </a>
+            </li>
+            <li>
+              <a href="mailto:j.kishor.bd@gmail.com">
+                Nanda Kishor Jeripothula
+              </a>
+            </li>
+            <li>
+              <a href="mailto:krishnakathala@gmail.com">
+                Krishna Chaitanya Rao Kathala
+              </a>
+            </li>
+            <li>
+              <a href="#Developers">
+                LINK EXTRA HERE
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                SOMEEXTRA content
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="copyright float-right">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear())
+          </script>, In <i class="fa fa-handshake-o"></i> with Government Of Telangana,
+          <a href="twd.telangana.gov.in" target="_blank">Telangana Welfare Department</a> 
+        </div>
+      </div>`;   
+
+});
   function getTotalNumberOfSchoolsVerifiedYearMonth(Ryear,Rmonth){
     arrMonths.push(Rmonth);
     Rmonth=Rmonth.toString();
