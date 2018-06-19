@@ -114,13 +114,13 @@ document.addEventListener('DOMContentLoaded', function() {
           </ul>
         </nav>
         <div class="copyright float-right">
-          &copy;
-          <script>
-            document.write(new Date().getFullYear())
-          </script>, In <i class="fa fa-handshake-o"></i> with Government Of Telangana,
+          &copy;`
+      var footerbuttom=`In <i class="fa fa-handshake-o"></i> with Government Of Telangana,
           <a href="twd.telangana.gov.in" target="_blank">Telangana Welfare Department</a> 
         </div>
       </div>`;   
+      footer.appendChild(document.write(new Date().getFullYear());
+      footer.appendChild(footerbuttom);
 
 });
   function getTotalNumberOfSchoolsVerifiedYearMonth(Ryear,Rmonth){
