@@ -71,6 +71,79 @@ module.exports = function(app, passport) {
 			user : req.user // get the user out of session and pass to template
 		});
 	});
+
+	// =====================================
+	// INSTITUTIONS SECTION ================
+	// =====================================
+	app.get('/institutions', isLoggedIn, function(req, res) {
+		res.render('institutions.ejs', {
+			user : req.user // get the user out of session and pass to template
+		});
+	});
+
+	// =====================================
+	// MAP SECTION ================
+	// =====================================
+	app.get('/map', isLoggedIn, function(req, res) {
+		res.render('map.ejs', {
+			user : req.user // get the user out of session and pass to template
+		});
+	});
+
+	// =====================================
+	// officers SECTION ================
+	// =====================================
+	app.get('/officers', isLoggedIn, function(req, res) {
+		res.render('officers.ejs', {
+			user : req.user // get the user out of session and pass to template
+		});
+	});
+	
+	// =====================================
+	// STAFF SECTION ================
+	// =====================================
+	app.get('/staff', isLoggedIn, function(req, res) {
+		res.render('staff.ejs', {
+			user : req.user // get the user out of session and pass to template
+		});
+	});
+
+	// =====================================
+	// PROVISION SECTION ================
+	// =====================================
+	app.get('/provision', isLoggedIn, function(req, res) {
+		res.render('provision.ejs', {
+			user : req.user // get the user out of session and pass to template
+		});
+	});
+
+	// =====================================
+	// MEDICAL SECTION ================
+	// =====================================
+	app.get('/medical', isLoggedIn, function(req, res) {
+		res.render('medical.ejs', {
+			user : req.user // get the user out of session and pass to template
+		});
+	});
+
+	// =====================================
+	// INFRASTRUCTURE SECTION ================
+	// =====================================
+	app.get('/infrastructure', isLoggedIn, function(req, res) {
+		res.render('infrastructure.ejs', {
+			title:{title:"Infrastructure"},
+			user : req.user// get the user out of session and pass to template
+		});
+	});
+	// =====================================
+	// ABOUTUS SECTION ================
+	// =====================================
+	app.get('/aboutus', isLoggedIn, function(req, res) {
+		res.render('aboutus.ejs', {
+			user : req.user // get the user out of session and pass to template
+		});
+	});
+
 	// =====================================
 	// LOGOUT ==============================
 	// =====================================
@@ -188,6 +261,11 @@ module.exports = function(app, passport) {
 		res.sendFile(path.join(__dirname, 'js', 'dashboard.js'));
 	});
 	
+	app.get('/js/ui.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'ui.js'));
+	});
+	
+
 };
 
 // route middleware to make sure

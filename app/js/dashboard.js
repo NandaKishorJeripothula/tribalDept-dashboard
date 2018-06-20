@@ -82,11 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
             month--;   
         }
     }
-    console.log(arrCount);
-    console.log(arrMonths);
-    ChartArrMonths=arrMonths.reverse();
-    ChartArrCount=arrCount.reverse();
-    console.log(ChartArrCount+ChartArrMonths);
     //footer JS
     /*
     var footer= document.getElementById("footer");

@@ -250,11 +250,10 @@ md = {
 
     if ($('#dailySalesChart').length != 0 || $('#completedTasksChart').length != 0 || $('#websiteViewsChart').length != 0) {
       /* ----------==========     Daily Sales Chart initialization    ==========---------- */
-
       dataDailySalesChart = {
-        labels: ChartArrMonths,//['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+        labels: arrMonths,//['M', 'T', 'W', 'T', 'F', 'S', 'S'],
         series: [
-          ChartArrCount//[12, 17, 7, 17, 23, 18, 38]
+          arrCount//[12, 17, 7, 17, 23, 18, 38]
         ]
       };
 
