@@ -6,7 +6,9 @@
   width: 100%;
   animation: cubic-bezier();
 }
-
+.ct-label{
+ color: #fefefe !important;
+}
 
 .small-card-title{
 font-size:1rem;

@@ -1,3 +1,5 @@
+var ChartArrCount = new Array();
+var ChartArrMonths = new Array();
 var arrCount = new Array();
 var arrMonths = new Array();
 var date= new Date;
@@ -5,12 +7,6 @@ var month= date.getMonth();
 var year = date.getFullYear();
    
 document.addEventListener('DOMContentLoaded', function() {
-
-   
-      
-
-
-
     var studentToStaffRatio;
     //Total Number of Schools Tag
     fetch(SERVER+TOTAL_SCHOOLS_COUNT)
@@ -88,8 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     console.log(arrCount);
     console.log(arrMonths);
-    charts(arrCount,arrMonths);
-    
+    ChartArrMonths=arrMonths.reverse();
+    ChartArrCount=arrCount.reverse();
+    console.log(ChartArrCount+ChartArrMonths);
     //footer JS
     /*
     var footer= document.getElementById("footer");

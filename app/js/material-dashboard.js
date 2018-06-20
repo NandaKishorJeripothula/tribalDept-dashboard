@@ -252,9 +252,9 @@ md = {
       /* ----------==========     Daily Sales Chart initialization    ==========---------- */
 
       dataDailySalesChart = {
-        labels: arrMonths,//['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+        labels: ChartArrMonths,//['M', 'T', 'W', 'T', 'F', 'S', 'S'],
         series: [
-          arrCount//[12, 17, 7, 17, 23, 18, 38]
+          ChartArrCount//[12, 17, 7, 17, 23, 18, 38]
         ]
       };
 
@@ -264,6 +264,11 @@ md = {
         }),
         low: 0,
         high: 500,
+        plugins: [
+          Chartist.plugins.ctPointLabels({
+            textAnchor: 'middle'
+          })
+        ],
         chartPadding: {
           top: 0,
           right: 0,
@@ -322,6 +327,12 @@ md = {
         },
         low: 0,
         high: 1000,
+        plugins: [
+          Chartist.plugins.tooltip(),
+    Chartist.plugins.ctPointLabels({
+            textAnchor: 'middle'
+          })
+        ],
         chartPadding: {
           top: 0,
           right: 5,
