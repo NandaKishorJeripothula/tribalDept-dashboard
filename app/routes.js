@@ -208,6 +208,10 @@ module.exports = function(app, passport) {
 		res.sendFile(path.join(__dirname, 'js', 'materialize.min.js'));
 	});
 	
+	app.get('/js/materialize.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'materialize.js'));
+	});
+	
 	app.get('/js/dashboard.js',function(req,res){
 		res.sendFile(path.join(__dirname, 'js', 'dashboard.js'));
 	});
