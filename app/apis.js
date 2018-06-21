@@ -95,8 +95,7 @@ api.get('/api/totalSchoolsData', function(req, res) {
     api_mandal.name as mandal,
     api_village.name as village, 
     inspection_institution.name school_name,
-    inspection_institution.institute_code as code ,
-    inspection_institution.total_students as total
+    inspection_institution.total_students as total_number_of_students
     FROM 
     api_district, 
     api_revenuedivision,
@@ -187,7 +186,7 @@ api.get('/api/totalSchoolsData', function(req, res) {
   //FOR DROPDOWN PURPOSE MANDAL RETRIVAL BASED ON DISTRICT INPUT
   api.get('/api/districts/:district',function(req,res){
       var district= req.params.district;
-      connection.query('SELECT DISTINCT api_mandal.name as mandals from api_mandal, api_district, api_revenuedivision where api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id=api_district.id AND api_district.name= ?',[district],function(err,rows){
+      connection.query('SELECT DISTINCT api_mandal.name as mandal from api_mandal, api_district, api_revenuedivision where api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id=api_district.id AND api_district.name= ?',[district],function(err,rows){
           if(err){
               res.send(err);
           }else{
