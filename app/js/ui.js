@@ -102,13 +102,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p>Medical</p>
                     </a>
                 </li>
-                <li class="nav-item " id="infrastructure">
+                <li class="nav-item " id="infrastructure"  style="z-index:1; ">
                     <a class="nav-link" href="/infrastructure">
                         <i class="material-icons">build</i>
                         <p>Infrastructure</p>
                     </a>
                     </li>
-                <li class="nav-item active-pro " id="aboutus">
+                <li class="nav-item active-pro " id="aboutus" style="z-index:1; ">
                         <a class="nav-link" href="/aboutus">
                             <i class="material-icons">ac_unit</i>
                             <p>About Us</p>
