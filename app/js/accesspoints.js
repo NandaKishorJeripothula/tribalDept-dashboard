@@ -10,3 +10,5 @@ const TOTAL_DTWOS_COUNT='/api/totalDTWOsCount';
 
 ///api/totalNumberOfSchoolsVerifiedInYearMonth/:year/:month
 const TOTAL_NUMBER_OF_SCHOOLS_VERIFIED_YEAR_MONTH= '/api/totalNumberOfSchoolsVerifiedInYearMonth';
+
+const DISTRICTS='/api/districts';

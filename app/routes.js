@@ -266,7 +266,7 @@ module.exports = function(app, passport) {
 	});
 	
 	app.get('/js/institutions.js',function(req,res){
-		res.sendFile(path.join(__dirname, 'js','institutionsi.js'));
+		res.sendFile(path.join(__dirname, 'js','institutions.js'));
 	});
 };
 
