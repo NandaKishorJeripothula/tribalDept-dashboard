@@ -265,7 +265,9 @@ module.exports = function(app, passport) {
 		res.sendFile(path.join(__dirname, 'js', 'ui.js'));
 	});
 	
-
+	app.get('/js/institutions.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js','institutionsi.js'));
+	});
 };
 
 // route middleware to make sure

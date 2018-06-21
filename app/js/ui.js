@@ -1,3 +1,16 @@
+
+window.onscroll = function() {sideBarSticker()};
+var sideBar = document.getElementById("sideMenu");
+//var sticky = sideBar.offsetTop; its value is 95 but for smooth effect direct value is instead of var 
+function sideBarSticker() {
+
+  if (window.pageYOffset >=95 ) {
+    sideBar.classList.add("sticky");
+  } else {
+    sideBar.classList.remove("sticky");
+  }
+}
+ 
 document.addEventListener('DOMContentLoaded', function() {
     //HEADER A.K.A Banner
     {document.getElementById('header').innerHTML=
@@ -11,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <h6>
                                 <small>K. Chandra Sekhar Rao , &nbsp;&nbsp;&nbsp;&nbsp; Hon'ble Cheif Minister of Telangana</small>
                             </h6>
-                        </div>
+                        </div>  
                         <div class="right hide-on-med-and-down  text-right">
                             <img src="/media/minister.jpg" alt="MINISTER" class="circle responsive-img" alt="LOGO" style="width:70px;height: auto;">
                             <h6>
