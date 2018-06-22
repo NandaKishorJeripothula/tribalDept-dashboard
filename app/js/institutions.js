@@ -9,13 +9,13 @@ $(document).ready(function(){
         $(jsonData).each(function (index, o) {    
               $options =$options+ "<option value='"+o.district+"'>"+o.district+"</option>";
         });
-        $('#districtsRegisteredSchools').append($options);
-        $("#districtsRegisteredSchools").material_select();
+        $('#districtsRegisteredInstitutions').append($options);
+        $("#districtsRegisteredInstitutions").material_select();
     });
     //Listen to change in district and load mandals accordingly
-    $(document).on('change','#districtsRegisteredSchools', function(){
+    $(document).on('change','#districtsRegisteredInstitutions', function(){
         //GET SELECTED DISTRICT NAME
-        var district = $('#districtsRegisteredSchools').find(":selected").val();
+        var district = $('#districtsRegisteredInstitutions').find(":selected").val();
         console.log(district);
         $.get(SERVER+MANDALS+district,function(data,status){
             console.log(data);
@@ -24,24 +24,24 @@ $(document).ready(function(){
             $(jsonData).each(function (index, o) {    
                 $options =$options+ "<option value='"+o.mandal+"'>"+o.mandal+"</option>";
             });
-            $('#mandalsRegisteredSchools').empty();
-            $('#mandalsRegisteredSchools').append($options);
-            $('#mandalsRegisteredSchools').material_select();
+            $('#mandalsRegisteredInstitutions').empty();
+            $('#mandalsRegisteredInstitutions').append($options);
+            $('#mandalsRegisteredInstitutions').material_select();
         });
    })
 
-   $('.collapsible #getDataRegisteredSchools').on('click', function(e) {
+   $('.collapsible #getDataRegisteredInstitutions').on('click', function(e) {
         e.stopPropagation();
         console.log('getData');
         $.get(SERVER+REGISTERED_SCHOOLS,function(data,status){
             var jsonData = $.parseJSON(data);
             console.log(jsonData);
             //EMPTY BEFORE LOADING DATA OUTSIDE LOOP
-            $('#registeredSchools').empty();
+            $('#RegisteredInstitutions').empty();
             $(jsonData).each(function(index,o){
                 var row= $('<tr />');               
                 // ADD TABLE ROW ELEMENT     
-                $('#registeredSchools').append(row);
+                $('#registeredInstitutions').append(row);
                 row.append($("<td>"+o.district+"</td>"));
                 row.append($("<td>"+o.mandal+"</td>"));
                 row.append($("<td>"+o.village+"</td>"));
@@ -50,14 +50,15 @@ $(document).ready(function(){
             });    
         });    
   });
-  $('.collapsible #printRegisteredSchools').on('click',function(e){
+  $('.collapsible #printRegisteredInstitutions').on('click',function(e){
     e.stopPropagation();
     console.log('Print'); 
-    var printDiv="registeredSchoolsCard";
+    var printDiv="registeredInstitutionsCard";
     printData(printDiv);
     });
     function printData(printDivId){
         var divToPrint=document.getElementById(printDivId);
+        var footer=document.getElementById("footer_JS");
         var htmlToPrint = 
         `
         <style type="text/css">
@@ -100,24 +101,23 @@ $(document).ready(function(){
         htmlToPrint += divToPrint.outerHTML;
         newWin= window.open("");
         newWin.document.write(htmlToPrint);
-        newWin.document.writeFooter("Designed and Developed By")
         newWin.print();
         newWin.close();
     }
-/*  $(document).on('click','#getDataRegisteredSchools', function(){
+/*  $(document).on('click','#getDataRegisteredInstitutions', function(){
        console.log("getData CLikc");
-        //var district = $('#districtsRegisteredSchools').find(":selected").val();
-        //var mandal = $('#mandalsRegisteredSchools').find(":selected").val();
+        //var district = $('#districtsRegisteredInstitutions').find(":selected").val();
+        //var mandal = $('#mandalsRegisteredInstitutions').find(":selected").val();
         //if(district==""&&mandal==""){
             $.get(SERVER+REGISTERED_SCHOOLS,function(data,status){
                 var jsonData = $.parseJSON(data);
                 console.log(jsonData);
                 //EMPTY BEFORE LOADING DATA OUTSIDE LOOP
-                $('#registeredSchools').empty();
+                $('#RegisteredInstitutions').empty();
                 $(jsonData).each(function(index,o){
                     var row= $('<tr />');               
                     // ADD TABLE ROW ELEMENT     
-                    $('#registeredSchools').append(row);
+                    $('#RegisteredInstitutions').append(row);
                     row.append($("<td>"+o.district+"</td>"));
                     row.append($("<td>"+o.mandal+"</td>"));
                     row.append($("<td>"+o.village+"</td>"));
