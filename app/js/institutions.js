@@ -209,19 +209,37 @@ $(document).ready(function(){
     //FOR RENDERING JSON DATA TO TABLES
     function renderTable(divId,api){
     $.get(api,function(data,status){
+        console.log(data.length);
         var jsonData = $.parseJSON(data);
         //EMPTY BEFORE LOADING DATA OUTSIDE LOOP
         $(divId).empty();
-        $(jsonData).each(function(index,o){
-            var row= $('<tr />');               
-            // ADD TABLE ROW ELEMENT     
-            $(divId).append(row);
-            row.append($("<td>"+o.district+"</td>"));
-            row.append($("<td>"+o.mandal+"</td>"));
-            row.append($("<td>"+o.village+"</td>"));
-            row.append($("<td>"+o.school_name+"</td>"));
-            row.append($("<td>"+o.total_number_of_students+"</td>"));
-        });    
+        console.log(jsonData.length);
+        // WHEN NO RECORDS FOUND
+        if(jsonData.length==0){
+            var NODATA="NO_DATA_AVAILABLE";
+            for(var i=0;i<5;i++){
+                var row= $('<tr/>');               
+                // ADD TABLE ROW ELEMENT     
+                $(divId).append(row);
+                row.append($("<td>"+NODATA+"</td>"));
+                row.append($("<td>"+NODATA+"</td>"));
+                row.append($("<td>"+NODATA+"</td>"));
+                row.append($("<td>"+NODATA+"</td>"));
+                row.append($("<td>"+NODATA+"</td>"));
+            }        
+        }else{
+            // WHEN RECORDS ARE FOUND
+            $(jsonData).each(function(index,o){
+                var row= $('<tr />');               
+                // ADD TABLE ROW ELEMENT     
+                $(divId).append(row);
+                row.append($("<td>"+o.district+"</td>"));
+                row.append($("<td>"+o.mandal+"</td>"));
+                row.append($("<td>"+o.village+"</td>"));
+                row.append($("<td>"+o.school_name+"</td>"));
+                row.append($("<td>"+o.total_number_of_students+"</td>"));
+            });
+        }    
     });    
 
     }//renderTable 
