@@ -119,7 +119,78 @@ api.get('/api/totalSchoolsData', function(req, res) {
         }
     });
   });
-  
+  api.get('/api/totalSchoolsData/:district', function(req, res) {
+    var district= req.params.district; 
+    connection.query(`
+    SELECT 
+    DISTINCT 
+    api_district.name as district,
+    api_mandal.name as mandal,
+    api_village.name as village, 
+    inspection_institution.name school_name,
+    inspection_institution.total_students as total_number_of_students
+    FROM 
+    api_district, 
+    api_revenuedivision,
+    api_mandal,
+    api_village,
+    inspection_institution 
+    WHERE 
+    inspection_institution.village_id=api_village.id
+    AND api_village.mandal_id=api_mandal.id
+    AND inspection_institution.mandal_id=api_mandal.id 
+    AND api_mandal.revenuedivision_id=api_revenuedivision.id 
+    AND api_revenuedivision.district_id= api_district.id
+    AND api_district.name= ?
+    ORDER BY api_district.name`
+    ,[district], function(err, rows){
+        if(err){
+            res.send(err);
+            console.log(err);
+        }
+        else{
+            res.send(JSON.stringify(rows))
+        }
+    });
+  });
+
+  api.get('/api/totalSchoolsData/:district/:mandal', function(req, res) {
+    var district= req.params.district; 
+    var mandal= req.params.mandal; 
+    connection.query(`
+    SELECT 
+    DISTINCT 
+    api_district.name as district,
+    api_mandal.name as mandal,
+    api_village.name as village, 
+    inspection_institution.name school_name,
+    inspection_institution.total_students as total_number_of_students
+    FROM 
+    api_district, 
+    api_revenuedivision,
+    api_mandal,
+    api_village,
+    inspection_institution 
+    WHERE 
+    inspection_institution.village_id=api_village.id
+    AND api_village.mandal_id=api_mandal.id
+    AND inspection_institution.mandal_id=api_mandal.id 
+    AND api_mandal.revenuedivision_id=api_revenuedivision.id 
+    AND api_revenuedivision.district_id= api_district.id
+    AND api_district.name= ?
+    AND api_mandal.name=?
+    ORDER BY api_district.name`
+    ,[district,mandal], function(err, rows){
+        if(err){
+            res.send(err);
+            console.log(err);
+        }
+        else{
+            res.send(JSON.stringify(rows))
+        }
+    });
+  });
+
   api.get('/api/totalNumberOfSchoolsVerifiedInYearMonth/:year/:month',function(req,res){
       var year= req.params.year;
       var month= req.params.month;

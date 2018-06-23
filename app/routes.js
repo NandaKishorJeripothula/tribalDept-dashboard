@@ -255,6 +255,14 @@ module.exports = function(app, passport) {
 	app.get('/js/Chart.js',function(req,res){
 		res.sendFile(path.join(__dirname, 'js', 'Chart.js'));
 	});
+	
+	app.get('/js/demo.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'demo.js'));
+	});
+
+	app.get('/js/map.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js', 'map.js'));
+	});
 
 	//JS FILESW FOR HANDLING APIS
 	app.get('/js/accesspoints.js',function(req,res){

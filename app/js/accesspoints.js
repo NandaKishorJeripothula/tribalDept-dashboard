@@ -1,5 +1,5 @@
 const SERVER= 'http://localhost:8080';
-//const SERVER= 'http://10.3.22.19:8080';
+//const SERVER= 'http://192.168.0.4:8080';
 
 const TOTAL_SCHOOLS_COUNT= '/api/totalSchoolsCount';
 const TOTAL_SCHOOLS_DATA= '/api/totalSchoolsData';
@@ -18,3 +18,9 @@ const MANDALS='/api/districts/';
 
 //REGISTERED SCHOOLS
 const REGISTERED_SCHOOLS='/api/totalSchoolsData';
+//REGISTERED SCHOOLS FILTER_DISTRICT
+// /api/totalSchoolsData/:district
+const REGISTERED_SCHOOLS_DISTRICT='/api/totalSchoolsData/';
+//REGISTERED SCHOOLS FILTER_DISTRICT_MANDAL
+// /api/totalSchoolsData/:district/:mandal
+REGISTERED_SCHOOLS_DISTRICT_MANDAL='/api/totalSchoolsData/';

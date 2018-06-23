@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     }
     //Main Panel
-    {
+   /* {
     //Main Panel
     document.getElementById('mainPanel').innerHTML=`
     <div>
@@ -699,8 +699,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </footer>
     </div>`;
     }
-    
-    document.getElementById('miniNavBar').innerText=document.title;
+    */
     //Footer JS
     {
     var footerContentA=`
@@ -752,6 +751,6 @@ document.addEventListener('DOMContentLoaded', function() {
     {
 
     }
-    document.getElementById('miniNavBar').innerText=document.title;
+    //document.getElementById('miniNavBar').innerText=document.title;
 
 });
