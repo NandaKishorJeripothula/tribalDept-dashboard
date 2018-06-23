@@ -23,4 +23,19 @@ const REGISTERED_SCHOOLS='/api/totalSchoolsData';
 const REGISTERED_SCHOOLS_DISTRICT='/api/totalSchoolsData/';
 //REGISTERED SCHOOLS FILTER_DISTRICT_MANDAL
 // /api/totalSchoolsData/:district/:mandal
-REGISTERED_SCHOOLS_DISTRICT_MANDAL='/api/totalSchoolsData/';
+const REGISTERED_SCHOOLS_DISTRICT_MANDAL='/api/totalSchoolsData/';
+
+
+///api/totalVerifiedSchoolsDistrictMandalYearMonthStartDateEndDate/:year/:month/:startDate/:endDate
+const VERIFIED_SCHOOLS_YEAR_MONTH_DAY_DAY='/api/totalVerifiedSchoolsDistrictYearMonthStartDateEndDate/';
+// /api/totalVerifiedSchoolsDistrictYearMonthStartDateEndDate/:district/:year/:month/:startDate/:endDate
+const VERIFIED_SCHOOLS_DISTRICT_YEAR_MONTH_DAY_DAY='/api/totalVerifiedSchoolsDistrictYearMonthStartDateEndDate/';
+// /api/totalVerifiedSchoolsDistrictYearMonthStartDateEndDate/:district/:mandal/:year/:month/:startDate/:endDate
+const VERIFIED_SCHOOLS_DISTRICT_MANDAL_YEAR_MONTH_DAY_DAY='/api/totalVerifiedSchoolsDistrictYearMonthStartDateEndDate/';
+
+///api/totalNotVerifiedSchoolsDistrictMandalYearMonthStartDateEndDate/:year/:month/:startDate/:endDate
+const NOT_VERIFIED_SCHOOLS_YEAR_MONTH_DAY_DAY='/api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/';
+// /api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/:district/:year/:month/:startDate/:endDate
+const NOT_VERIFIED_SCHOOLS_DISTRICT_YEAR_MONTH_DAY_DAY='/api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/';
+// /api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/:district/:mandal/:year/:month/:startDate/:endDate
+const NOT_VERIFIED_SCHOOLS_DISTRICT_MANDAL_YEAR_MONTH_DAY_DAY='/api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/';

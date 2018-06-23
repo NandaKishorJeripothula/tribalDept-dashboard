@@ -191,6 +191,127 @@ api.get('/api/totalSchoolsData', function(req, res) {
     });
   });
 
+
+api.get('/api/love',function(req,res){
+    res.send("djfaskdj;fk")
+});
+
+  //Verified Schools
+  api.get('/api/totalVerifiedSchoolsDistrictYearMonthStartDateEndDate/:year/:month/:startDate/:endDate',function(req,res){
+    var year= req.params.year;
+    var month= req.params.month;
+    var startDate = req.params.startDate;
+    var endDate = req.params.endDate;
+    var FROM=year+"-"+month+"-"+startDate;
+    var TO=year+"-"+month+"-"+endDate;
+    connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE DATE_FORMAT(DATE(inspection_submissionreport.created_on), '%Y-%m-%d') BETWEEN ? AND ? ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id ORDER BY District ASC
+    `,[FROM,TO],function(err,rows){
+        if(err){
+            res.send(err);
+        }else{
+            res.send(JSON.stringify(rows));
+        }
+        });
+    });
+  api.get('/api/totalVerifiedSchoolsDistrictYearMonthStartDateEndDate/:district/:year/:month/:startDate/:endDate',function(req,res){
+    var district= req.params.district;
+    var year= req.params.year;
+    var month= req.params.month;
+    var startDate = req.params.startDate;
+    var endDate = req.params.endDate;
+    var FROM=year+"-"+month+"-"+startDate;
+    var TO=year+"-"+month+"-"+endDate;
+    connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE DATE_FORMAT(DATE(inspection_submissionreport.created_on), '%Y-%m-%d') BETWEEN ? AND ? ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id AND api_district.name=?`
+    ,[FROM,TO,district],function(err,rows){
+        if(err){
+            res.send(err);
+        }else{
+            res.send(JSON.stringify(rows));
+        }
+    });
+    });
+
+    //todo
+    api.get('/api/totalVerifiedSchoolsDistrictYearMonthStartDateEndDate/:district/:mandal/:year/:month/:startDate/:endDate',function(req,res){
+        var district= req.params.district;
+        var mandal= req.params.mandal;
+        var year= req.params.year;
+        var montn= req.params.month;
+        var startDate = req.params.startDate;
+        var endDate = req.params.endDate;
+        var FROM=year+"-"+montn+"-"+startDate;
+        var TO=year+"-"+montn+"-"+endDate;
+        connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE DATE_FORMAT(DATE(inspection_submissionreport.created_on), '%Y-%m-%d') BETWEEN ? AND ? ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id AND api_district.name=? AND api_mandal.name= ?`
+        ,[FROM,TO,district,mandal],function(err,rows){
+            if(err){
+                res.send(err);
+            }else{
+                res.send(JSON.stringify(rows));
+            }
+        });
+
+    });
+
+    //VERIFIED SCHOOLS END
+
+
+// NOT Verified Schools
+  api.get('/api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/:year/:month/:startDate/:endDate',function(req,res){
+    var year= req.params.year;
+    var month= req.params.month;
+    var startDate = req.params.startDate;
+    var endDate = req.params.endDate;
+    var FROM=year+"-"+month+"-"+startDate;
+    var TO=year+"-"+month+"-"+endDate;
+    connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id NOT IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE DATE_FORMAT(DATE(inspection_submissionreport.created_on), '%Y-%m-%d') BETWEEN ? AND ? ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id ORDER BY District ASC
+    `,[FROM,TO],function(err,rows){
+        if(err){
+            res.send(err);
+        }else{
+            res.send(JSON.stringify(rows));
+        }
+        });
+    });
+  api.get('/api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/:district/:year/:month/:startDate/:endDate',function(req,res){
+    var district= req.params.district;
+    var year= req.params.year;
+    var month= req.params.month;
+    var startDate = req.params.startDate;
+    var endDate = req.params.endDate;
+    var FROM=year+"-"+month+"-"+startDate;
+    var TO=year+"-"+month+"-"+endDate;
+    connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id NOT IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE DATE_FORMAT(DATE(inspection_submissionreport.created_on), '%Y-%m-%d') BETWEEN ? AND ? ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id AND api_district.name=?`
+    ,[FROM,TO,district],function(err,rows){
+        if(err){
+            res.send(err);
+        }else{
+            res.send(JSON.stringify(rows));
+        }
+    });
+    });
+
+    api.get('/api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/:district/:mandal/:year/:month/:startDate/:endDate',function(req,res){
+        var district= req.params.district;
+        var mandal= req.params.mandal;
+        var year= req.params.year;
+        var montn= req.params.month;
+        var startDate = req.params.startDate;
+        var endDate = req.params.endDate;
+        var FROM=year+"-"+montn+"-"+startDate;
+        var TO=year+"-"+montn+"-"+endDate;
+        connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id NOT IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE DATE_FORMAT(DATE(inspection_submissionreport.created_on), '%Y-%m-%d') BETWEEN ? AND ? ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id AND api_district.name=? AND api_mandal.name= ?`
+        ,[FROM,TO,district,mandal],function(err,rows){
+            if(err){
+                res.send(err);
+            }else{
+                res.send(JSON.stringify(rows));
+            }
+        });
+
+    });
+
+    //NOT VERIFIED SCHOOLS END
+
   api.get('/api/totalNumberOfSchoolsVerifiedInYearMonth/:year/:month',function(req,res){
       var year= req.params.year;
       var month= req.params.month;

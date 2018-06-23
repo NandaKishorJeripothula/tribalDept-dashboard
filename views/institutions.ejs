@@ -130,27 +130,27 @@
                                       <div class="table-responsive">
                                         <form>
                                             <div class="row">
-                                                <div class="input-field col-md-2">
+                                                <div class="input-field col-md-3">
                                                     <select id='districtsVerifiedInstitutions'>
-                                                      <option value="" disabled selected>Choose District</option>
+                                                      <option value="null" disabled selected>Choose District</option>
                                                     </select>
                                                     <label style="padding-left:15px;">Districts</label>
                                                  </div>
-                                                 <div class="input-field col-md-2">
+                                                 <div class="input-field col-md-3">
                                                     <select id="mandalsVerifiedInstitutions">
-                                                      <option value="" disabled selected>Choose Mandal</option>
+                                                      <option value="null" disabled selected>Choose Mandal</option>
                                                     </select>
                                                     <label style="padding-left:15px;">Mandals</label>
                                                  </div>
                                                  <div class="input-field col-md-1">
-                                                    <select id="yearVerifiedSchools">
-                                                      <option value="" disabled selected>Year</option>
+                                                    <select id="yearVerifiedInstitutions">
+                                                      <option value="null" disabled selected>Year</option>
                                                     </select>
                                                     <label style="padding-left:15px;" >Year</label>
                                                  </div>
                                                  <div class="input-field  col-md-1">
-                                                    <select id="monthVerifiedSchools">
-                                                      <option value="" disabled selected>Month</option>
+                                                    <select id="monthVerifiedInstitutions">
+                                                      <option value="null" disabled selected>Month</option>
                                                       <option value="01">01</option>
                                                       <option value="02">02</option>
                                                       <option value="03">03</option>
@@ -167,23 +167,84 @@
                                                     <label style="padding-left:15px;">Month</label>
                                                  </div>
                                                  <div class="input-field  col-md-1">
-                                                    <select id="startDateVerifiedSchools">
-                                                      <option value="" disabled selected>Day</option>
+                                                    <select id="startDateVerifiedInstitutions">
+                                                      <option value="null" disabled selected>Day</option>
+                                                      <option value="01">01</option>
+                                                      <option value="02">02</option>
+                                                      <option value="03">03</option>
+                                                      <option value="04">04</option>
+                                                      <option value="05">05</option>
+                                                      <option value="06">06</option>
+                                                      <option value="07">07</option>
+                                                      <option value="08">08</option>
+                                                      <option value="09">09</option>
+                                                      <option value="10">10</option>
+                                                      <option value="11">11</option>
+                                                      <option value="13">13</option>
+                                                      <option value="14">14</option>
+                                                      <option value="15">15</option>
+                                                      <option value="16">16</option>
+                                                      <option value="17">17</option>
+                                                      <option value="18">18</option>
+                                                      <option value="19">19</option>
+                                                      <option value="20">20</option>
+                                                      <option value="21">21</option>
+                                                      <option value="22">22</option>
+                                                      <option value="23">23</option>
+                                                      <option value="24">24</option>
+                                                      <option value="25">25</option>
+                                                      <option value="26">26</option>
+                                                      <option value="27">27</option>
+                                                      <option value="28">28</option>
+                                                      <option value="29">29</option>
+                                                      <option value="30">30</option>
+                                                      <option value="31">31</option>
                                                     </select>
                                                     <label style="padding-left:15px;">Day to</label>
                                                 </div>
                                                 <div class="input-field  col-md-1">
-                                                  <select id="endDateVerifiedSchools">
+                                                  <select id="endDateVerifiedInstitutions">
                                                     <option value="" disabled selected>Day</option>
+                                                    <option value="01">01</option>
+                                                    <option value="02">02</option>
+                                                    <option value="03">03</option>
+                                                    <option value="04">04</option>
+                                                    <option value="05">05</option>
+                                                    <option value="06">06</option>
+                                                    <option value="07">07</option>
+                                                    <option value="08">08</option>
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                    <option value="24">24</option>
+                                                    <option value="25">25</option>
+                                                    <option value="26">26</option>
+                                                    <option value="27">27</option>
+                                                    <option value="28">28</option>
+                                                    <option value="29">29</option>
+                                                    <option value="30">30</option>
+                                                    <option value="31">31</option>
                                                   </select>
                                                   <label style="padding-left:15px;">Day</label>
                                                </div>
                                                <div class=" col-md-2">
-                                                  <button id="getDataRegisteredInstitutions" type="button" class="btn btn-primary btn-round">Get Data</button>
-                                               </div>
-                                               <div class=" col-md-2">
-                                                  <button id="printRegisteredInstitutions" type="button" class="btn btn-danger btn-round">Print</button>
-                                               </div>
+                                                  <button id="getDataVerifiedInstitutions" type="button" class="btn btn-primary btn-round">Get Data</button>
+                                                  <button id="printVerifiedInstitutions" type="button" class="btn btn-danger btn-round">&nbsp;&nbsp;Print&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                </div>
+                                              </div>
+                                              <div>
+                                                <p>All Fields Are Mandatory</p>
                                               </div>
                                         </form>
                                         <table class="table table-hover">
@@ -204,7 +265,161 @@
                                               Total No. Students
                                             </th>
                                           </thead>
-                                          <tbody id="registeredInstitutions">
+                                          <tbody id="verifiedInstitutions">
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                              </div>
+                            </li>
+                            <li class="card" id="notVerifiedInstitutionsCard">
+                              <div class="collapsible-header">
+                                  <div class="card-header card-header-primary">
+                                      <h4 class="card-title ">Not Verified Institutions</h4>
+                                      <p class="card-category"> Total Detials of the Schools / Institutions Not Verified in a particular time span. </p>
+                                  </div>
+                              </div>
+                              <div class="collapsible-body">
+                                  <div class="card-body">
+                                      <div class="table-responsive">
+                                        <form>
+                                            <div class="row">
+                                                <div class="input-field col-md-3">
+                                                    <select id='districtsNotVerifiedInstitutions'>
+                                                      <option value="null" disabled selected>Choose District</option>
+                                                    </select>
+                                                    <label style="padding-left:15px;">Districts</label>
+                                                 </div>
+                                                 <div class="input-field col-md-3">
+                                                    <select id="mandalsNotVerifiedInstitutions">
+                                                      <option value="null" disabled selected>Choose Mandal</option>
+                                                    </select>
+                                                    <label style="padding-left:15px;">Mandals</label>
+                                                 </div>
+                                                 <div class="input-field col-md-1">
+                                                    <select id="yearNotVerifiedInstitutions">
+                                                      <option value="null" disabled selected>Year</option>
+                                                    </select>
+                                                    <label style="padding-left:15px;" >Year</label>
+                                                 </div>
+                                                 <div class="input-field  col-md-1">
+                                                    <select id="monthNotVerifiedInstitutions">
+                                                      <option value="null" disabled selected>Month</option>
+                                                      <option value="01">01</option>
+                                                      <option value="02">02</option>
+                                                      <option value="03">03</option>
+                                                      <option value="04">04</option>
+                                                      <option value="05">05</option>
+                                                      <option value="06">06</option>
+                                                      <option value="07">07</option>
+                                                      <option value="08">08</option>
+                                                      <option value="09">09</option>
+                                                      <option value="10">10</option>
+                                                      <option value="11">11</option>
+                                                      <option value="12">12</option>
+                                                    </select>
+                                                    <label style="padding-left:15px;">Month</label>
+                                                 </div>
+                                                 <div class="input-field  col-md-1">
+                                                    <select id="startDateNotVerifiedInstitutions">
+                                                      <option value="null" disabled selected>Day</option>
+                                                      <option value="01">01</option>
+                                                      <option value="02">02</option>
+                                                      <option value="03">03</option>
+                                                      <option value="04">04</option>
+                                                      <option value="05">05</option>
+                                                      <option value="06">06</option>
+                                                      <option value="07">07</option>
+                                                      <option value="08">08</option>
+                                                      <option value="09">09</option>
+                                                      <option value="10">10</option>
+                                                      <option value="11">11</option>
+                                                      <option value="13">13</option>
+                                                      <option value="14">14</option>
+                                                      <option value="15">15</option>
+                                                      <option value="16">16</option>
+                                                      <option value="17">17</option>
+                                                      <option value="18">18</option>
+                                                      <option value="19">19</option>
+                                                      <option value="20">20</option>
+                                                      <option value="21">21</option>
+                                                      <option value="22">22</option>
+                                                      <option value="23">23</option>
+                                                      <option value="24">24</option>
+                                                      <option value="25">25</option>
+                                                      <option value="26">26</option>
+                                                      <option value="27">27</option>
+                                                      <option value="28">28</option>
+                                                      <option value="29">29</option>
+                                                      <option value="30">30</option>
+                                                      <option value="31">31</option>
+                                                    </select>
+                                                    <label style="padding-left:15px;">Day to</label>
+                                                </div>
+                                                <div class="input-field  col-md-1">
+                                                  <select id="endDateNotVerifiedInstitutions">
+                                                    <option value="" disabled selected>Day</option>
+                                                    <option value="01">01</option>
+                                                    <option value="02">02</option>
+                                                    <option value="03">03</option>
+                                                    <option value="04">04</option>
+                                                    <option value="05">05</option>
+                                                    <option value="06">06</option>
+                                                    <option value="07">07</option>
+                                                    <option value="08">08</option>
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                    <option value="24">24</option>
+                                                    <option value="25">25</option>
+                                                    <option value="26">26</option>
+                                                    <option value="27">27</option>
+                                                    <option value="28">28</option>
+                                                    <option value="29">29</option>
+                                                    <option value="30">30</option>
+                                                    <option value="31">31</option>
+                                                  </select>
+                                                  <label style="padding-left:15px;">Day</label>
+                                               </div>
+                                               <div class=" col-md-2">
+                                                  <button id="getNotDataVerifiedInstitutions" type="button" class="btn btn-primary btn-round">Get Data</button>
+                                                  <button id="printNotVerifiedInstitutions" type="button" class="btn btn-danger btn-round">&nbsp;&nbsp;Print&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                </div>
+                                              </div>
+                                              <div>
+                                                <p>All Fields Are Mandatory</p>
+                                              </div>
+                                        </form>
+                                        <table class="table table-hover">
+                                          <thead class=" text-primary">
+                                            <th>
+                                              District
+                                            </th>
+                                            <th>
+                                              Mandal
+                                            </th>
+                                            <th>
+                                              Village 
+                                            </th>
+                                            <th>
+                                              Institution
+                                            </th>
+                                            <th>
+                                              Total No. Students
+                                            </th>
+                                          </thead>
+                                          <tbody id="notVerifiedInstitutions">
                                           </tbody>
                                         </table>
                                       </div>
