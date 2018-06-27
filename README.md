@@ -1,6 +1,6 @@
 # Tribal Welfare Department, Government of Telangana
 This is dashboard developed Using 
-NodeJs
+NodeJS
 MySql
 Bootstrap
 MaterializeCSS
