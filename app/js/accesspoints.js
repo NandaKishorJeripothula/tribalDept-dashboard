@@ -16,6 +16,9 @@ const DISTRICTS='/api/districts';
 // /api/districts/:district
 const MANDALS='/api/districts/';
 
+//LOAD OFFICERS for Drilling down
+const OFFICERS='/api/officers';
+
 //REGISTERED SCHOOLS
 const REGISTERED_SCHOOLS='/api/totalSchoolsData';
 //REGISTERED SCHOOLS FILTER_DISTRICT
@@ -39,3 +42,24 @@ const NOT_VERIFIED_SCHOOLS_YEAR_MONTH_DAY_DAY='/api/totalNotVerifiedSchoolsDistr
 const NOT_VERIFIED_SCHOOLS_DISTRICT_YEAR_MONTH_DAY_DAY='/api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/';
 // /api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/:district/:mandal/:year/:month/:startDate/:endDate
 const NOT_VERIFIED_SCHOOLS_DISTRICT_MANDAL_YEAR_MONTH_DAY_DAY='/api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/';
+
+
+// /api/numberOfReportsSubmittedYearMonth/:year/:month
+const NUMBER_OF_REPORTS_SUBMITTED_YEAR_MONTH='/api/numberOfReportsSubmittedYearMonth/'
+// /api/numberOfReportsSubmittedYearMonthDayDay/:year/:month/:startDate/:endDate
+const NUMBER_OF_REPORTS_SUBMITTED_YEAR_MONTH_DAY_DAY='/api/numberOfReportsSubmittedYearMonthDayDay/'
+
+
+// /api/officersReportsNotSubmittedYearMonth/:year/:month
+const OFFICERS_REPORTS_NOT_SUBMITTED_YEAR_MONTH='/api/officersReportsNotSubmittedYearMonth/'
+// /api/officersReportsNotSubmitted/:year/:month/:startDate/:endDate
+const OFFICERS_REPORTS_NOT_SUBMITTED_YEAR_MONTH_DAY_DAY='/api/officersReportsNotSubmittedYearMonthDayDay/'
+
+// /api/viewReportsOfOfficerYearMonthDistrict/:year/:month/:district
+const VIEW_REPORTS_OF_OFFICER_YEAR_MONTH_DISTRICT= '/api/viewReportsOfOfficerYearMonthDistrict/';
+// /api/viewReportsOfOfficerYearMonthOfficer/:year/:month/:officer
+const VIEW_REPORTS_OF_OFFICER_YEAR_MONTH_OFFICER='/api/viewReportsOfOfficerYearMonthOfficer/';
+// /api/viewReportsOfOfficerYearMonthDayDayDistrict/:year/:month/:startDate/:endDate/:district
+const VIEW_REPORTS_OF_OFFICER_YEAR_MONTH_DAY_DAY_DISTRICT='/api/viewReportsOfOfficerYearMonthDayDayDistrict/';
+//  /api/viewReportsOfOfficerYearMonthDayDayOfficer/:year/:month/:startDate/:endDate/:officer
+VIEW_REPORTS_OF_OFFICER_YEAR_MONTH_DAY_DAY_OFFICER='/api/viewReportsOfOfficerYearMonthDayDayOfficer/';

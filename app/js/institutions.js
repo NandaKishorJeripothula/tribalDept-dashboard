@@ -94,7 +94,7 @@ $(document).ready(function(){
         var date= new Date();
         var $pastYear= date.getFullYear()-1;
         $options="";
-        for(var i=0;i<3;i++,$pastYear++){
+        for(var i=0;i<2;i++,$pastYear++){
             $options =$options+ "<option value='"+$pastYear+"'>"+$pastYear+"</option>";
         }
         $('#yearVerifiedInstitutions').append($options);
@@ -168,7 +168,7 @@ $(document).ready(function(){
         var date= new Date();
         var $pastYear= date.getFullYear()-1;
         $options="";
-        for(var i=0;i<3;i++,$pastYear++){
+        for(var i=0;i<2;i++,$pastYear++){
             $options =$options+ "<option value='"+$pastYear+"'>"+$pastYear+"</option>";
         }
         $('#yearNotVerifiedInstitutions').append($options);

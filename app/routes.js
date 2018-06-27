@@ -280,6 +280,9 @@ module.exports = function(app, passport) {
 	app.get('/js/institutions.js',function(req,res){
 		res.sendFile(path.join(__dirname, 'js','institutions.js'));
 	});
+	app.get('/js/officers.js',function(req,res){
+		res.sendFile(path.join(__dirname, 'js','officers.js'));
+	});
 };
 
 // route middleware to make sure
