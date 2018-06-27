@@ -7,7 +7,10 @@ var dbconfig = require('../config/database');
 
 var connection = mysql.createConnection(dbconfig.connection);
 
-connection.query('CREATE DATABASE ' + dbconfig.database);
+// USE THIS IF NO TWD DATABASE IS THERE, UNCOMMENT THIS AND COMMENT BELOW USE COMMANDD
+//connection.query('CREATE DATABASE' + dbconfig.database);
+//IF YOU HAVE TWD DATABASE FOLLOW THIS 
+connection.query('USE' + dbconfig.database);
 
 connection.query('\
 CREATE TABLE `' + dbconfig.database + '`.`' + dbconfig.users_table + '` ( \
