@@ -248,8 +248,8 @@ md = {
 
   initDashboardPageCharts: function() {
 
-    if ($('#schoolsVerified').length != 0 || $('#completedTasksChart').length != 0 || $('#classWiseStudentsCount').length != 0) {
-      /* ----------==========     Daily Sales Chart initialization    ==========---------- */
+    if ($('#schoolsVerified').length != 0 || $('#classWiseStudentsCountChart').length != 0 || $('#classWiseStudentsCount').length != 0) {
+      /* ----------==========    Schools Verified  Chart initialization    ==========---------- */
       dataSchoolsVerified = {
         labels: arrMonths,//['M', 'T', 'W', 'T', 'F', 'S', 'S'],
         series: [
@@ -282,21 +282,22 @@ md = {
 
 
 
-      /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
+      /* ----------==========     classWiseStudentsCountChart Chart initialization    ==========---------- */
 
-      dataCompletedTasksChart = {
-        labels: ['12p', '3p', '6p', '9p', '12p', '3a', '6a', '9a'],
+      dataClassWiseStudentsCountChart = {
+        labels: arrClasses,//['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
         series: [
-          [230, 750, 450, 300, 280, 240, 200, 190]
+          arrClassesStudentsCount//[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+
         ]
       };
 
-      optionsCompletedTasksChart = {
+      optionsClassWiseStudentsCountChart = {
         lineSmooth: Chartist.Interpolation.cardinal({
           tension: 0
         }),
         low: 0,
-        high: 20000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        high: 210000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
         chartPadding: {
           top: 0,
           right: 0,
@@ -305,54 +306,47 @@ md = {
         }
       }
 
-      var completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
+      var classWiseStudentsCountChart = new Chartist.Line('#classWiseStudentsCountChart', dataClassWiseStudentsCountChart, optionsClassWiseStudentsCountChart);
 
       // start animation for the Completed Tasks Chart - Line Chart
-      md.startAnimationForLineChart(completedTasksChart);
+      md.startAnimationForLineChart(classWiseStudentsCountChart);
 
 
       /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
 
-      var dataClassWiseStudentsCount = {
+
+
+      dataClassWiseStudentsCount = {
         labels: arrClasses,//['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
         series: [
           arrClassesStudentsCount//[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
 
         ]
       };
-      var optionsClassWiseStudentsCount = {
-        axisX: {
-          showGrid: false
-        },
+
+      optionsClassWiseStudentsCount = {
+        lineSmooth: Chartist.Interpolation.cardinal({
+          tension: 0
+        }),
         low: 0,
         high: 21000,
         plugins: [
-          Chartist.plugins.tooltip(),
-    Chartist.plugins.ctPointLabels({
+          Chartist.plugins.ctPointLabels({
             textAnchor: 'middle'
           })
         ],
         chartPadding: {
           top: 0,
-          right: 5,
+          right: 0,
           bottom: 0,
           left: 0
-        }
-      };
-      var responsiveOptions = [
-        ['screen and (max-width: 680px)', {
-          seriesBarDistance: 5,
-          axisX: {
-            labelInterpolationFnc: function(value) {
-              return value[0];
-            }
-          }
-        }]
-      ];
-      var classWiseStudentsCount = Chartist.Line('#classWiseStudentsCount', dataClassWiseStudentsCount, optionsClassWiseStudentsCount, responsiveOptions);
+        },
+      }
+
+      var classWiseStudentsCount = new Chartist.Line('#classWiseStudentsCount', dataClassWiseStudentsCount, optionsClassWiseStudentsCount);
         
       //start animation for the classWiseStudentsCount
-      md.startAnimationForBarChart(classWiseStudentsCount);
+      md.startAnimationForLineChart(classWiseStudentsCount);
     }
   },
 

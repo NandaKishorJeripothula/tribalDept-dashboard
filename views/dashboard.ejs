@@ -185,7 +185,7 @@
                 <div class="col-md-6">
                   <div class="card card-chart">
                     <div class="card-header card-header-warning">
-                      <div class="ct-chart" style=" margin-left:15px"id="classWiseStudentsCount"></div>
+                      <div class="ct-chart" style=" margin-left:15px" id="classWiseStudentsCount"></div>
                     </div>
                     <div class="card-body">
                       <h4 class="card-title">Classes Vs Students</h4>
@@ -193,7 +193,7 @@
                       <h6 id="totalStudentsVariance">
                         <h6>Total Students Count among all schools: <span id="totalStudentCount"></span>
                           <br> Total Students Count among all classes: <span id="classWiseTotalStudentsCount"></span>
-                          <br> Variance: <span id="studentCountVariance"></span>
+                          <br> Variance:  <span id="studentCountVariance"></span>
                       </h6>
                       <button class="btn btn-primary" onclick='md.initDashboardPageCharts()'>Reload Charts</button>
                     </div>
@@ -204,19 +204,24 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-0">
+                <div class="col-md-6">
                   <div class="card card-chart">
                     <div class="card-header card-header-danger">
-                      <div class="ct-chart" id="completedTasksChart"></div>
+                      <div class="ct-chart" style=" margin-left:15px"  id="classWiseStudentsCountChart"></div>
                     </div>
                     <div class="card-body">
-                      <h4 class="card-title">New Chart </h4>
-                      <p class="card-category">Last Campaign Performance</p>
+                      <h4 class="card-title">Classes Vs Students</h4>
+                      <p class="card-category">Number of Students registered in each class/ standard in total institutions</p>
+                      <h6 id="totalStudentsVariance">
+                        <h6>Total Students Count among all schools: <span id="totalStudentCount"></span>
+                          <br> Total Students Count among all classes: <span id="classWiseTotalStudentsCount"></span>
+                          <br> Variance:  <span id="studentCountVariance"></span>
+                      </h6>
                       <button class="btn btn-primary" onclick='md.initDashboardPageCharts()'>Reload Charts</button>
                     </div>
                     <div class="card-footer">
                       <div class="stats">
-                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                        <i class="material-icons">access_time</i> campaign taken from Inspection_Classes
                       </div>
                     </div>
                   </div>
