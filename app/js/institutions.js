@@ -174,8 +174,8 @@ $(document).ready(function(){
         $('#yearNotVerifiedInstitutions').append($options);
         $("#yearNotVerifiedInstitutions").material_select();
         }
-                
-        $('.collapsible #getDataNotVerifiedInstitutions').on('click', function(e) {
+            
+        $('.collapsible #getDataNotVerifiedInstitutions').on('click',function(e){
                     e.stopPropagation();
                     var district= $("#districtsNotVerifiedInstitutions").find(":selected").val();
                     var mandal= $("#mandalsNotVerifiedInstitutions").find(":selected").val();
@@ -183,9 +183,8 @@ $(document).ready(function(){
                     var month=$("#monthNotVerifiedInstitutions").find(":selected").val();
                     var startDate=$("#startDateNotVerifiedInstitutions").find(":selected").val();
                     var endDate=$("#endDateNotVerifiedInstitutions").find(":selected").val();
-                    
                     //IF NONE SELECTED RETRIEVE ALL
-                    if(district=="null" && mandal=="null" && year!="null" && month!="null" && startDate!="null" && endDate!="null"){   
+                    if(district=="null" && mandal=="null" && year!="null" && month!="null" && startDate!="null" && endDate!="null"){
                         //renderTable(Stirng:"#id Of div",API_URL)
                         renderTable("#notVerifiedInstitutions",SERVER+NOT_VERIFIED_SCHOOLS_YEAR_MONTH_DAY_DAY+year+"/"+month+"/"+startDate+"/"+endDate);
                     }else if(district!="null" && mandal=="null" && year!="null" && month!="null" && startDate!="null" && endDate!="null"){   

@@ -72,44 +72,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p>Institutions</p>
                     </a>
                 </li>
-                <li class="nav-item " id="map">
-                    <a class="nav-link" href="/map">
-                    <i class="material-icons">location_ons</i>
-                    <p>Map</p>
-                    </a>
-                </li>
                 <li class="nav-item " id="officers">
                     <a class="nav-link" href="/officers">
                     <i class="material-icons">how_to_reg</i>
                     <p>Officers</p>
                     </a>
                 </li>
-                <li class="nav-item " id="staff">
-                    <a class="nav-link" href="/staff">
-                    <i class="material-icons">people</i>
-                    <p>Staff</p>
-                    </a>
-                </li>
-                <li class="nav-item " id="provision">
-                    <a class="nav-link" href="/provision">
-                    <i class="material-icons">widgets</i>
-                    <p>Provision</p>
-                    </a>
-                </li>
-                <li class="nav-item " id="medical">
-                    <a class="nav-link" href="/medical">
-                    <i class="material-icons">favorite</i>
-                    <p>Medical</p>
-                    </a>
-                </li>
-                
-                <li class="nav-item " id="infrastructure"  >
-                    <a class="nav-link" href="/infrastructure">
-                        <i class="material-icons">build</i>
-                        <p>Infrastructure</p>
-                    </a>
-                </li>
-                <li class="nav-item active-pro " id="aboutus ">
+                <li class="nav-item" id="aboutus ">
                         <a class="nav-link" href="/aboutus">
                             <i class="material-icons">ac_unit</i>
                             <p>About Us</p>
@@ -119,6 +88,34 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             </div>
     `;
+
+    var removesNavItems=`
+    
+    <li class="nav-item " id="staff">
+    <a class="nav-link" href="/staff">
+    <i class="material-icons">people</i>
+    <p>Staff</p>
+    </a>
+</li>
+<li class="nav-item " id="provision">
+    <a class="nav-link" href="/provision">
+    <i class="material-icons">widgets</i>
+    <p>Provision</p>
+    </a>
+</li>
+<li class="nav-item " id="medical">
+    <a class="nav-link" href="/medical">
+    <i class="material-icons">favorite</i>
+    <p>Medical</p>
+    </a>
+</li>
+
+<li class="nav-item " id="infrastructure"  >
+    <a class="nav-link" href="/infrastructure">
+        <i class="material-icons">build</i>
+        <p>Infrastructure</p>
+    </a>
+</li>`
     }
     //Code to set the Side Menu Nav Item ACTIVE
     {

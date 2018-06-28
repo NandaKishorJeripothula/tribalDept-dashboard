@@ -73,7 +73,7 @@ $(document).ready(function(){
                     };
         });
         //ON PRINT BUTTON > ACTIONS 
-        $('.collapsible #printNumberOfReportsSubmitted').on('click',function(e){
+        $('.collapsible #printOfficersReportsNotSubmitted').on('click',function(e){
             e.stopPropagation();
             //PRINT FUNCTION IS JS FUNTION NOT JQUERY SO DONT ADD #
             var printDiv="officersReportsNotSubmittedCard";
