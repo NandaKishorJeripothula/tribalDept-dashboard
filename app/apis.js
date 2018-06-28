@@ -87,6 +87,18 @@ api.get('/api/totalSchoolsCount',function(req,res){
     })
   });
 
+  
+  api.get('/api/classesStudentsCount',function(req,res){
+    connection.query('SELECT inspection_classes.standard as class, SUM(inspection_classes.total_students) as studentsCount FROM inspection_classes GROUP BY inspection_classes.standard ORDER BY cast(inspection_classes.standard as unsigned)',function(err,rows){
+        if(err){
+            res.send(err);
+        }
+        else{
+        res.send(JSON.stringify(rows));
+        }
+    })
+  });
+
 api.get('/api/totalSchoolsData', function(req, res) {
     connection.query(`
     SELECT 

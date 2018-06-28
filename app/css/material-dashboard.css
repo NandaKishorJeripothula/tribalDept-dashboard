@@ -1,5 +1,10 @@
 /*     brand Colors              */
 /*scrollable sideMenu*/
+
+.ct-label, .ct-vertical, .ct-start{
+  margin-left: 5px;
+
+}
 #institutionsMap {
   z-index: 2;
   height: calc(100vh - 70px);

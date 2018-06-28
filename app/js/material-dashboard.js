@@ -248,16 +248,16 @@ md = {
 
   initDashboardPageCharts: function() {
 
-    if ($('#dailySalesChart').length != 0 || $('#completedTasksChart').length != 0 || $('#websiteViewsChart').length != 0) {
+    if ($('#schoolsVerified').length != 0 || $('#completedTasksChart').length != 0 || $('#classWiseStudentsCount').length != 0) {
       /* ----------==========     Daily Sales Chart initialization    ==========---------- */
-      dataDailySalesChart = {
+      dataSchoolsVerified = {
         labels: arrMonths,//['M', 'T', 'W', 'T', 'F', 'S', 'S'],
         series: [
           arrCount//[12, 17, 7, 17, 23, 18, 38]
         ]
       };
 
-      optionsDailySalesChart = {
+      optionsSchoolsVerified = {
         lineSmooth: Chartist.Interpolation.cardinal({
           tension: 0
         }),
@@ -276,9 +276,9 @@ md = {
         },
       }
 
-      var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+      var schoolsVerified = new Chartist.Line('#schoolsVerified', dataSchoolsVerified, optionsSchoolsVerified);
 
-      md.startAnimationForLineChart(dailySalesChart);
+      md.startAnimationForLineChart(schoolsVerified);
 
 
 
@@ -296,7 +296,7 @@ md = {
           tension: 0
         }),
         low: 0,
-        high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        high: 20000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
         chartPadding: {
           top: 0,
           right: 0,
@@ -313,19 +313,19 @@ md = {
 
       /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
 
-      var dataWebsiteViewsChart = {
-        labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+      var dataClassWiseStudentsCount = {
+        labels: arrClasses,//['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
         series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+          arrClassesStudentsCount//[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
 
         ]
       };
-      var optionsWebsiteViewsChart = {
+      var optionsClassWiseStudentsCount = {
         axisX: {
           showGrid: false
         },
         low: 0,
-        high: 1000,
+        high: 21000,
         plugins: [
           Chartist.plugins.tooltip(),
     Chartist.plugins.ctPointLabels({
@@ -340,7 +340,7 @@ md = {
         }
       };
       var responsiveOptions = [
-        ['screen and (max-width: 640px)', {
+        ['screen and (max-width: 680px)', {
           seriesBarDistance: 5,
           axisX: {
             labelInterpolationFnc: function(value) {
@@ -349,10 +349,10 @@ md = {
           }
         }]
       ];
-      var websiteViewsChart = Chartist.Bar('#websiteViewsChart', dataWebsiteViewsChart, optionsWebsiteViewsChart, responsiveOptions);
+      var classWiseStudentsCount = Chartist.Line('#classWiseStudentsCount', dataClassWiseStudentsCount, optionsClassWiseStudentsCount, responsiveOptions);
         
-      //start animation for the Emails Subscription Chart
-      md.startAnimationForBarChart(websiteViewsChart);
+      //start animation for the classWiseStudentsCount
+      md.startAnimationForBarChart(classWiseStudentsCount);
     }
   },
 

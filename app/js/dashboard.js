@@ -1,3 +1,5 @@
+var classStudentTotalCount=0;
+var totalStudentCount=0;
 var ChartArrCount = new Array();
 var ChartArrMonths = new Array();
 var arrCount = new Array();
@@ -5,9 +7,11 @@ var arrMonths = new Array();
 var date= new Date;
 var month= date.getMonth();
 var year = date.getFullYear();
-   
+var arrClasses= new Array();
+var arrClassesStudentsCount= new Array();   
 document.addEventListener('DOMContentLoaded', function() {
     var studentToStaffRatio;
+
     //Total Number of Schools Tag
     fetch(SERVER+TOTAL_SCHOOLS_COUNT)
     .then(function(response) {
@@ -24,8 +28,34 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(function(data) {
         document.getElementById('totalNumberOfStudents').innerText=data[0].total_students_count;
         studentToStaffRatio=data[0].total_students_count;
+        totalStudentCount=data[0].total_students_count;
+        console.log(totalStudentCount);
+        document.getElementById('totalStudentCount').innerText=totalStudentCount;
 
     });
+    //for classess bvs students count chart
+    fetch(SERVER+CLASSES_STUDENTS_COUNT)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        //todo
+       for(var i=0;i<10;i++){
+         arrClasses.push(data[i].class);
+         arrClassesStudentsCount.push(data[i].studentsCount);
+         classStudentTotalCount = classStudentTotalCount + data[i].studentsCount;
+
+       }
+       document.getElementById('classWiseTotalStudentsCount').innerText=classStudentTotalCount;
+       document.getElementById('studentCountVariance').innerText=totalStudentCount-classStudentTotalCount;
+       console.log(classStudentTotalCount);
+       console.log(totalStudentCount-classStudentTotalCount);
+    });
+
+
+    document.getElementById('studentCountVariance').innerText=totalStudentCount-classStudentTotalCount;
+    
+    
     
     //Total Number Of Staff
     fetch(SERVER+TOTAL_STAFF_COUNT)
@@ -64,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('totalNumberOfDTWOs').innerText=data[0].total_DTWOs_count;
         
     }); 
-    //TODO
+    
 
     //For total number of Schools verified in last 6 months
     for(i=6; i>0;i--){
@@ -125,7 +155,9 @@ document.addEventListener('DOMContentLoaded', function() {
       footer.appendChild(document.write(new Date().getFullYear());
       footer.appendChild(footerbuttom);*/
 
-});
+
+
+    });
   function getTotalNumberOfSchoolsVerifiedYearMonth(Ryear,Rmonth){
     arrMonths.push(Rmonth);
     Rmonth=Rmonth.toString();
