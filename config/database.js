@@ -8,3 +8,5 @@ module.exports = {
 	'database': 'twd',
     'users_table': 'dashboard_users'
 };
+
+//IF YOU ARE WORRIED ABOUT THE SCRIPT RUNNING THEN import users with dashboard_users.sql
