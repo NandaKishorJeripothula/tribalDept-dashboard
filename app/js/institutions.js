@@ -120,6 +120,15 @@ $(document).ready(function(){
                     }else if(district!="null" && mandal!="null" && year!="null" && month!="null" && startDate!="null" && endDate!="null"){
                         //renderTable(Stirng:"#id Of div",API_URL)
                         renderTable("#verifiedInstitutions",SERVER+VERIFIED_SCHOOLS_DISTRICT_MANDAL_YEAR_MONTH_DAY_DAY+district+"/"+mandal+"/"+year+"/"+month+"/"+startDate+"/"+endDate);
+                    }else if(district=="null" && mandal=="null" && year!="null" && month!="null" && startDate=="null" && endDate=="null"){
+                        //renderTable(Stirng:"#id Of div",API_URL)
+                        renderTable("#verifiedInstitutions",SERVER+VERIFIED_SCHOOLS_YEAR_MONTH+year+"/"+month);
+                    }else if(district!="null" && mandal=="null" && year!="null" && month!="null" && startDate=="null" && endDate=="null"){
+                        //renderTable(Stirng:"#id Of div",API_URL)
+                        renderTable("#verifiedInstitutions",SERVER+VERIFIED_SCHOOLS_DISTRICT_YEAR_MONTH+district+"/"+year+"/"+month);
+                    }else if(district!="null" && mandal!="null" && year!="null" && month!="null" && startDate=="null" && endDate=="null"){
+                        //renderTable(Stirng:"#id Of div",API_URL)
+                        renderTable("#verifiedInstitutions",SERVER+VERIFIED_SCHOOLS_DISTRICT_MANDAL_YEAR_MONTH+district+"/"+mandal+"/"+year+"/"+month);
                     };
         });
         //ON PRINT BUTTON > ACTIONS 
@@ -193,6 +202,15 @@ $(document).ready(function(){
                     }else if(district!="null" && mandal!="null" && year!="null" && month!="null" && startDate!="null" && endDate!="null"){
                         //renderTable(Stirng:"#id Of div",API_URL)
                         renderTable("#notVerifiedInstitutions",SERVER+NOT_VERIFIED_SCHOOLS_DISTRICT_MANDAL_YEAR_MONTH_DAY_DAY+district+"/"+mandal+"/"+year+"/"+month+"/"+startDate+"/"+endDate);
+                    }else if(district=="null" && mandal=="null" && year!="null" && month!="null" && startDate=="null" && endDate=="null"){
+                        //renderTable(Stirng:"#id Of div",API_URL)
+                        renderTable("#notVerifiedInstitutions",SERVER+NOT_VERIFIED_SCHOOLS_YEAR_MONTH+year+"/"+month);
+                    }else if(district!="null" && mandal=="null" && year!="null" && month!="null" && startDate=="null" && endDate=="null"){
+                        //renderTable(Stirng:"#id Of div",API_URL)
+                        renderTable("#notVerifiedInstitutions",SERVER+NOT_VERIFIED_SCHOOLS_DISTRICT_YEAR_MONTH+district+"/"+year+"/"+month);
+                    }else if(district!="null" && mandal!="null" && year!="null" && month!="null" && startDate=="null" && endDate=="null"){
+                        //renderTable(Stirng:"#id Of div",API_URL)
+                        renderTable("#notVerifiedInstitutions",SERVER+NOT_VERIFIED_SCHOOLS_DISTRICT_MANDAL_YEAR_MONTH+district+"/"+mandal+"/"+year+"/"+month);
                     };
         });
         //ON PRINT BUTTON > ACTIONS 
@@ -208,13 +226,13 @@ $(document).ready(function(){
     //FOR RENDERING JSON DATA TO TABLES
     function renderTable(divId,api){
     $.get(api,function(data,status){
-        console.log(data.length);
         var jsonData = $.parseJSON(data);
         //EMPTY BEFORE LOADING DATA OUTSIDE LOOP
         $(divId).empty();
         console.log(jsonData.length);
         // WHEN NO RECORDS FOUND
         if(jsonData.length==0){
+            console.log("no data");
             var NODATA="NO_DATA_AVAILABLE";
             for(var i=0;i<5;i++){
                 var row= $('<tr/>');               
@@ -238,6 +256,7 @@ $(document).ready(function(){
                 row.append($("<td>"+o.school_name+"</td>"));
                 row.append($("<td>"+o.total_number_of_students+"</td>"));
             });
+            console.log($(divId));
         }    
     });    
 

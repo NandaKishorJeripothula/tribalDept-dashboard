@@ -243,7 +243,7 @@ api.get('/api/love',function(req,res){
     });
     });
 
-    //todo
+
     api.get('/api/totalVerifiedSchoolsDistrictYearMonthStartDateEndDate/:district/:mandal/:year/:month/:startDate/:endDate',function(req,res){
         var district= req.params.district;
         var mandal= req.params.mandal;
@@ -263,6 +263,49 @@ api.get('/api/love',function(req,res){
         });
 
     });
+
+    api.get('/api/totalVerifiedSchoolsYearMonth/:year/:month',function(req,res){
+        var year= req.params.year;
+        var month= req.params.month;
+        connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE year(inspection_submissionreport.created_on)= ? AND month(inspection_submissionreport.created_on)=? ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id ORDER BY District ASC
+        `,[year,month],function(err,rows){
+            if(err){
+                res.send(err);
+            }else{
+                res.send(JSON.stringify(rows));
+            }
+            });
+        });
+      api.get('/api/totalVerifiedSchoolsDistrictYearMonth/:district/:year/:month',function(req,res){
+        var district= req.params.district;
+        var year= req.params.year;
+        var month= req.params.month;
+        connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE year(inspection_submissionreport.created_on)= ? AND month(inspection_submissionreport.created_on)= ?  ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id AND api_district.name=?`
+        ,[year,month,district],function(err,rows){
+            if(err){
+                res.send(err);
+            }else{
+                res.send(JSON.stringify(rows));
+            }
+        });
+        });
+    
+        api.get('/api/totalVerifiedSchoolsDistrictMandalYearMonth/:district/:mandal/:year/:month',function(req,res){
+            var district= req.params.district;
+            var mandal= req.params.mandal;
+            var year= req.params.year;
+            var month= req.params.month;
+            connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE year(inspection_submissionreport.created_on)= ? AND month(inspection_submissionreport.created_on)= ? ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id AND api_district.name=? AND api_mandal.name= ?`
+            ,[year,month,district,mandal],function(err,rows){
+                if(err){
+                    res.send(err);
+                }else{
+                    res.send(JSON.stringify(rows));
+                }
+            });
+    
+        });
+    
 
     //VERIFIED SCHOOLS END
 
@@ -321,6 +364,50 @@ api.get('/api/love',function(req,res){
         });
 
     });
+
+    api.get('/api/totalNotVerifiedSchoolsYearMonth/:year/:month',function(req,res){
+        var year= req.params.year;
+        var month= req.params.month;
+        connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id NOT IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE year(inspection_submissionreport.created_on)= ? AND month(inspection_submissionreport.created_on)=? ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id ORDER BY District ASC
+        `,[year,month],function(err,rows){
+            if(err){
+                res.send(err);
+            }else{
+                res.send(JSON.stringify(rows));
+            }
+            });
+        });
+      api.get('/api/totalNotVerifiedSchoolsDistrictYearMonth/:district/:year/:month',function(req,res){
+        var district= req.params.district;
+        var year= req.params.year;
+        var month= req.params.month;
+        connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id NOT IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE year(inspection_submissionreport.created_on)= ? AND month(inspection_submissionreport.created_on)= ?  ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id AND api_district.name=?`
+        ,[year,month,district],function(err,rows){
+            if(err){
+                res.send(err);
+            }else{
+                res.send(JSON.stringify(rows));
+            }
+        });
+        });
+    
+        api.get('/api/totalNotVerifiedSchoolsDistrictMandalYearMonth/:district/:mandal/:year/:month',function(req,res){
+            var district= req.params.district;
+            var mandal= req.params.mandal;
+            var year= req.params.year;
+            var month= req.params.month;
+            connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id NOT IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE year(inspection_submissionreport.created_on)= ? AND month(inspection_submissionreport.created_on)= ? ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id AND api_district.name=? AND api_mandal.name= ?`
+            ,[year,month,district,mandal],function(err,rows){
+                if(err){
+                    res.send(err);
+                }else{
+                    res.send(JSON.stringify(rows));
+                }
+            });
+    
+        });
+    
+
 
     //NOT VERIFIED SCHOOLS END
 

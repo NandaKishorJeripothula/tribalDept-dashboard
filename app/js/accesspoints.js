@@ -37,6 +37,12 @@ const VERIFIED_SCHOOLS_YEAR_MONTH_DAY_DAY='/api/totalVerifiedSchoolsDistrictYear
 const VERIFIED_SCHOOLS_DISTRICT_YEAR_MONTH_DAY_DAY='/api/totalVerifiedSchoolsDistrictYearMonthStartDateEndDate/';
 // /api/totalVerifiedSchoolsDistrictYearMonthStartDateEndDate/:district/:mandal/:year/:month/:startDate/:endDate
 const VERIFIED_SCHOOLS_DISTRICT_MANDAL_YEAR_MONTH_DAY_DAY='/api/totalVerifiedSchoolsDistrictYearMonthStartDateEndDate/';
+// /api/totalVerifiedSchoolsYearMonth/:year/:month
+const VERIFIED_SCHOOLS_YEAR_MONTH='/api/totalVerifiedSchoolsYearMonth/';
+// /api/totalVerifiedSchoolsDistrictYearMonth/:district/:year/:month
+const VERIFIED_SCHOOLS_DISTRICT_YEAR_MONTH='/api/totalVerifiedSchoolsDistrictYearMonth/';
+// /api/totalVerifiedSchoolsDistrictMandalYearMonth/:district/:mandal/:year/:month
+const VERIFIED_SCHOOLS_DISTRICT_MANDAL_YEAR_MONTH='/api/totalVerifiedSchoolsDistrictMandalYearMonth/';
 
 ///api/totalNotVerifiedSchoolsDistrictMandalYearMonthStartDateEndDate/:year/:month/:startDate/:endDate
 const NOT_VERIFIED_SCHOOLS_YEAR_MONTH_DAY_DAY='/api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/';
@@ -45,6 +51,12 @@ const NOT_VERIFIED_SCHOOLS_DISTRICT_YEAR_MONTH_DAY_DAY='/api/totalNotVerifiedSch
 // /api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/:district/:mandal/:year/:month/:startDate/:endDate
 const NOT_VERIFIED_SCHOOLS_DISTRICT_MANDAL_YEAR_MONTH_DAY_DAY='/api/totalNotVerifiedSchoolsDistrictYearMonthStartDateEndDate/';
 
+// /api/totalNotVerifiedSchoolsYearMonth/:year/:month
+const NOT_VERIFIED_SCHOOLS_YEAR_MONTH='/api/totalNotVerifiedSchoolsYearMonth/';
+// /api/totalNotVerifiedSchoolsDistrictYearMonth/:district/:year/:month
+const NOT_VERIFIED_SCHOOLS_DISTRICT_YEAR_MONTH='/api/totalNotVerifiedSchoolsDistrictYearMonth/';
+// /api/totalNotVerifiedSchoolsDistrictMandalYearMonth/:district/:mandal/:year/:month
+const NOT_VERIFIED_SCHOOLS_DISTRICT_MANDAL_YEAR_MONTH='/api/totalNotVerifiedSchoolsDistrictMandalYearMonth/';
 
 // /api/numberOfReportsSubmittedYearMonth/:year/:month
 const NUMBER_OF_REPORTS_SUBMITTED_YEAR_MONTH='/api/numberOfReportsSubmittedYearMonth/'
