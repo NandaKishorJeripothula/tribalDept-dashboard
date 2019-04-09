@@ -25,7 +25,6 @@ If you would like to download the code and try it for yourself:
 
 ### The Following are some of the snaps of application
 
-**Landing Page**
 ![LandingPage](app/landing.jpg)
 
 **Dashboard Page**
@@ -36,5 +35,4 @@ If you would like to download the code and try it for yourself:
 
 **Mobile View**
 ![Dashboard](app/mobile.JPG)
-
 Licence: ISC
