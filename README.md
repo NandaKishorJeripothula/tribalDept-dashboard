@@ -26,15 +26,15 @@ If you would like to download the code and try it for yourself:
 ### The Following are some of the snaps of application
 
 **Landing Page**
-![LandingPage](app/landing.jpg)
+![LandingPage](https://github.com/NandaKishorJeripothula/tribalDept-dashboard/tree/master/app/landing.jpg)
 
 **Dashboard Page**
-![Dashboard](app/dashboardSnap.jpg)
+![Dashboard](https://github.com/NandaKishorJeripothula/tribalDept-dashboard/tree/master/app/dashboardSnap.jpg)
 
 **Institutions Details**
-![Dashboard](app/inst.jpg)
+![Dashboard](https://github.com/NandaKishorJeripothula/tribalDept-dashboard/tree/master/app/inst.jpg)
 
 **Mobile View**
-![Dashboard](app/mobile.jpg)
+![Dashboard](https://github.com/NandaKishorJeripothula/tribalDept-dashboard/tree/master/app/mobile.jpg)
 
 Licence: ISC
