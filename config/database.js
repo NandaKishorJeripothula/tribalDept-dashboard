@@ -4,8 +4,9 @@ module.exports = {
         'host': 'localhost',
         'user': 'root',
         'password': ''
-    },
-	'database': 'twd',
+      },
+    'database': 'twd',
+    'database':'TWD',
     'users_table': 'dashboard_users'
 };
 
