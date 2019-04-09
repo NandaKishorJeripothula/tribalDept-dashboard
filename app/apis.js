@@ -153,8 +153,7 @@ api.get('/api/love',function(req,res){
     var endDate = req.params.endDate;
     var FROM=year+"-"+month+"-"+startDate;
     var TO=year+"-"+month+"-"+endDate;
-    connection.query(`SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE DATE_FORMAT(DATE(inspection_submissionreport.created_on), '%Y-%m-%d') BETWEEN ? AND ? ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id ORDER BY District ASC
-    `,[FROM,TO],function(err,rows){
+    connection.query('SELECT DISTINCT api_district.name AS district, api_mandal.name AS mandal, api_village.name AS village, inspection_institution.name AS school_name, inspection_institution.total_students AS total_number_of_students FROM api_district, api_revenuedivision, api_mandal, api_village, inspection_institution WHERE inspection_institution.id IN ( SELECT DISTINCT inspection_submissionreport.institution_id from inspection_submissionreport WHERE DATE_FORMAT(DATE(inspection_submissionreport.created_on), `%Y-%m-%d`) BETWEEN ? AND ? ) AND inspection_institution.village_id=api_village.id AND inspection_institution.mandal_id=api_mandal.id AND api_mandal.revenuedivision_id= api_revenuedivision.id AND api_revenuedivision.district_id= api_district.id ORDER BY District ASC',[FROM,TO],function(err,rows){
         if(err){
             res.send(err);
         }else{
