@@ -29,12 +29,12 @@ If you would like to download the code and try it for yourself:
 ![LandingPage](app/landing.jpg)
 
 **Dashboard Page**
-![Dashboard](app/dashboardSnap.jpg)
+![Dashboard](app/dashboardSnap.JPG)
 
 **Institutions Details**
 ![Dashboard](app/inst.jpg)
 
 **Mobile View**
-![Dashboard](app/mobile.jpg)
+![Dashboard](app/mobile.JPG)
 
 Licence: ISC
